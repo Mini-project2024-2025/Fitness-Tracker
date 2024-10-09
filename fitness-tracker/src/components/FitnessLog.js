@@ -1,0 +1,1 @@
+// NEW: For logging fitness activities

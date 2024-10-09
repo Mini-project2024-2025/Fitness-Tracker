@@ -1,0 +1,1 @@
+// NEW: User schema with fitness data (MongoDB)
