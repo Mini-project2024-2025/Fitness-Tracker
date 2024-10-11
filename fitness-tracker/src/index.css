@@ -14,7 +14,7 @@
   --bg-color: #000;
   --snd-bg-color: #111;
   --text-color: #fff;
-  --main-color: #45ffca;
+  --main-color: #ffc20e;
 }
 
 html{
@@ -101,4 +101,12 @@ span{
   color: var(--main-color);
   cursor: pointer;
   display: none;
+}
+
+.main-head1{
+  -webkit-text-stroke: 1px var(--main-color);
+  color: transparent;
+  font-size: 10rem;
+  font-weight: bold;
+  text-align: center;
 }
