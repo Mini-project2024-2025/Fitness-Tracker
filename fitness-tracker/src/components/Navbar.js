@@ -1,19 +1,23 @@
 // Navigation Bar Component
 import React from 'react';
-import { Link } from 'react-router-dom';
+import '../styles/Navbar.css';
 
-function Navbar() {
-  return (
-    <nav>
-      <ul>
-        <li><Link to="/">Dashboard</Link></li>
-        <li><Link to="/log">Log Activity</Link></li>
-        <li><Link to="/chatbot">Chatbot</Link></li>
-        <li><Link to="/admin">Admin Panel</Link></li>
+const Navbar = () =>{
+  return(
+    <header>
+      <a href="#home" className="logo">Fit<span>Zura</span></a>
+      <ul className="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#plans">Pricing</a></li>
+        <li><a href="#review">Review</a></li>
       </ul>
-    </nav>
+      <div className="top-btn">
+        <a href='#' className="nav-btn">Join Us</a>
+      </div>
+    </header>
   );
 }
 
 export default Navbar;
-// Use <Link> from React Router to provide navigation to different routes.
