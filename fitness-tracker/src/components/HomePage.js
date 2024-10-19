@@ -2,7 +2,6 @@ import React from "react";
 import '../styles/HomePage.css';
 
 const HomePage = () => {
-  // Gallery images array
   const gallery = [
     "/img1.webp",
     "/img2.jpg",
@@ -34,20 +33,17 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Background Video Below the Hero Section */}
       <video autoPlay muted loop className="background-video">
         <source src="/Video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Features Section */}
       <section className="features">
         <h2 className="features-heading">Key Features</h2>
         <blockquote className="features-quote">"Your Fitness Journey, made Smarter and Simpler"</blockquote>
         <div className="features-container">
           <img src="./img5.jpg" alt="Features" className="features-image" />
           <div className="features-cards">
-            {/* Features List */}
             {[
               { title: "Track Your Workouts", desc: "Log your exercises, sets, reps, and weight to monitor progress." },
               { title: "Monitor Your Progress", desc: "View your workout history, progress charts, and achievements." },
@@ -70,7 +66,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
       <section className="gallery">
         <h1>BETTER BEATS BEST</h1>
         <div className="images">
@@ -92,72 +87,44 @@ const HomePage = () => {
         </div>
       </section>
 
-{/* About Us Section */}
-<section className="about-us">
-  <br />
-  <br />
-  <h2 className="about-us-title">Our Team</h2>
-  <br />
-  <div className="about-us-cards">
-    {/* Team Member 1 */}
-    <div className="about-us-card">
-      <img
-        src="/profile1.jpg"  /* Replace with actual image path */
-        alt="Team Member 1"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Priyanshu Yadav</h3>
-      <p className="about-us-member-work">Frontend Developer</p>
-    </div>
+      <section className="about-us">
+        <br />
+        <br />
+        <h2 className="about-us-title">Our Team</h2>
+        <br />
+        <div className="about-us-cards">
+          <div className="about-us-card">
+            <img src="/profile1.jpg" alt="Team Member 1" className="about-us-image" />
+            <h3 className="about-us-member-name">Priyanshu Yadav</h3>
+            <p className="about-us-member-work">Frontend Developer</p>
+          </div>
 
-    {/* Team Member 2 */}
-    <div className="about-us-card">
-      <img
-        src="/profile2.jpg"  
-        alt="Team Member 2"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Krishnangi Agrawal</h3>
-      <p className="about-us-member-work">Frontend Developer</p>
-    </div>
+          <div className="about-us-card">
+            <img src="/profile2.jpg" alt="Team Member 2" className="about-us-image" />
+            <h3 className="about-us-member-name">Krishnangi Agrawal</h3>
+            <p className="about-us-member-work">Frontend Developer</p>
+          </div>
 
-    {/* Team Member 3 */}
-    <div className="about-us-card">
-      <img
-        src="/profile1.jpg"   
-        alt="Team Member 3"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Vedanshu Maurya</h3>
-      <p className="about-us-member-work">Backend Developer</p>
-    </div>
+          <div className="about-us-card">
+            <img src="/profile1.jpg" alt="Team Member 3" className="about-us-image" />
+            <h3 className="about-us-member-name">Vedanshu Maurya</h3>
+            <p className="about-us-member-work">Backend Developer</p>
+          </div>
 
-    {/* Team Member 4 */}
-    <div className="about-us-card">
-      <img
-        src="/profile2.jpg"  
-        alt="Team Member 4"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Teena Gautam</h3>
-      <p className="about-us-member-work">Frontend Developer</p>
-    </div>
+          <div className="about-us-card">
+            <img src="/profile2.jpg" alt="Team Member 4" className="about-us-image" />
+            <h3 className="about-us-member-name">Teena Gautam</h3>
+            <p className="about-us-member-work">Frontend Developer</p>
+          </div>
 
-    {/* Team Member 5 */}
-    <div className="about-us-card">
-      <img
-        src="/profile1.jpg"   
-        alt="Team Member 5"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Sharad Kumar</h3>
-      <p className="about-us-member-work">Fullstack Developer</p>
-    </div>
-  </div>
-</section>
+          <div className="about-us-card">
+            <img src="/profile1.jpg" alt="Team Member 5" className="about-us-image" />
+            <h3 className="about-us-member-name">Sharad Kumar</h3>
+            <p className="about-us-member-work">Fullstack Developer</p>
+          </div>
+        </div>
+      </section>
 
-
-      {/* Footer Section */}
       <footer className="Footer">
         <h2>Connect with us..</h2>
         <p>Follow us on social media for the latest tips and updates!</p>

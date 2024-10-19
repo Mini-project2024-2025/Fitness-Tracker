@@ -1,8 +1,7 @@
-/* Hero section with background image */
 .hero {
   min-height: 100vh;
   position: relative;
-  background: url(./img12.jpg) rgba(0, 0, 0, 0.75); /* Updated image */
+  background: url(./img12.jpg) rgba(0, 0, 0, 0.75);
   background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,20 +11,17 @@
   padding-left: 7rem;
 }
 
-/* Flex container for the content */
 .hero .content {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-/* Styling the title text */
 .hero .content .title {
   color: whitesmoke;
   font-size: 4rem;
 }
 
-/* Subtitle styling */
 .hero .content .sub-title p {
   font-weight: 400;
   color: whitesmoke;
@@ -33,19 +29,16 @@
   line-height: 45px;
 }
 
-/* Color for the last subtitle */
 .hero .content .sub-title p:last-child {
   color: #ffea00;
 }
 
-/* Styling the button container */
 .hero .content .buttons {
   display: flex;
   align-items: center;
   gap: 25px;
 }
 
-/* Button styling */
 .hero .content .buttons button {
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -55,7 +48,6 @@
   transition: 0.3s;
 }
 
-/* Button hover effect */
 .hero .content .buttons button:hover {
   cursor: pointer;
   background: #ffd5008c;
@@ -63,7 +55,6 @@
   transition: 0.3s;
 }
 
-/* Responsive styling */
 @media (max-width: 1050px) {
   .hero {
     padding-left: 2.5rem;
@@ -121,189 +112,180 @@
     align-items: flex-start;
   }
 }
-/* Features Section */
+
 .features {
-  display: flex;                  /* Use flex layout */
-  flex-direction: column;         /* Stack items vertically */
-  background-color: black;        /* Background color for the features section */
-  padding: 50px 20px;             /* Padding around the section */
-  align-items: center;            /* Center align items */
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 50px 20px;
+  align-items: center;
 }
 
-/* Center the Heading and Quote */
 .features-heading, .features-quote {
-  text-align: center;             /* Center text */
-  width: 100%;                    /* Full width to allow centering */
-  margin: 0;                      /* Remove default margins */
+  text-align: center;
+  width: 100%;
+  margin: 0;
 }
 
-/* Container for Features Image and Cards */
 .features-container {
-  display: flex;                  /* Use flex layout for image and cards */
-  align-items: flex-start;        /* Align items to the top */
-  width: 100%;                    /* Full width */
-  margin-top: 20px;               /* Space above the container */
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
 }
 
-/* Horizontal Image */
 .features-image {
-  width: 40%;                     /* Adjust width as needed */
-  object-fit: cover;              /* Ensure the image covers the area */
-  border-radius: 10px;            /* Rounded corners */
-  margin-right: 20px;             /* Space to the right of the image */
+  width: 40%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
 }
 
-/* Container for Cards */
 .features-cards {
-  display: grid;                  /* Use grid layout for cards */
-  grid-template-columns: repeat(2, 1fr); /* Two cards in a row */
-  gap: 20px;                     /* Space between cards */
-  width: 60%;                     /* Adjust as needed */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 60%;
 }
 
-/* Card Styling */
 .card {
-  background-color: #333;         /* Dark background for cards */
-  color: white;                   /* Text color */
-  padding: 20px;                  /* Padding inside cards */
-  border-radius: 10px;   
-  font-size: 1.5rem;         
-  transition: transform 0.3s;     /* Smooth transition for hover effect */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Card Hover Effect */
 .card:hover {
-  transform: translateY(-5px);    /* Lift effect on hover */
-  background-color: #444;          /* Slightly lighter on hover */
+  transform: translateY(-5px);
+  background-color: #444;
 }
 
-/* Features Section Heading */
 .features-heading {
-  font-size: 2.5rem;               /* Font size for the heading */
-  color: #ffea00;                  /* Heading color */
-  margin-bottom: 10px;             /* Space below the heading */
+  font-size: 2.5rem;
+  color: #ffea00;
+  margin-bottom: 10px;
 }
 
-/* Features Section Quote */
 .features-quote {
-  font-size: 1.5rem;               /* Font size for the quote */
-  color: #fff;                     /* Color for the quote */
-  font-style: italic;              /* Italic style for emphasis */
-  margin-bottom: 30px;             /* Space below the quote */
+  font-size: 1.5rem;
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 30px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .features {
-    padding: 20px;                 /* Reduce padding on smaller screens */
+    padding: 20px;
   }
 
   .features-image {
-    width: 100%;                   /* Full width on mobile */
-    margin-right: 0;               /* Remove right margin on mobile */
-    margin-bottom: 20px;           /* Space below the image */
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .features-cards {
-    width: 100%;                   /* Full width for cards */
-    grid-template-columns: 1fr;    /* One card per row on mobile */
+    width: 100%;
+    grid-template-columns: 1fr;
   }
 }
+
 .about {
-  text-align: center; /* Center the text */
-  margin: 40px 0; /* Margin for the section */
+  text-align: center;
+  margin: 40px 0;
 }
 
 .about-heading {
-  font-size: 3rem; /* Change heading size to 3rem */
-  color: #ffea00; /* Heading color */
-  margin-bottom: 20px; /* Space below the heading */
+  font-size: 3rem;
+  color: #ffea00;
+  margin-bottom: 20px;
 }
 
 .about-cards {
-  display: flex; /* Flexbox for card layout */
-  justify-content: center; /* Center the cards */
-  flex-wrap: wrap; /* Wrap cards on small screens */
-  gap: 20px; /* Space between cards */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .about-card {
-  background-color: #000000; /* Dark background for cards */
-  border-radius: 8px; /* Rounded corners */
-  padding: 20px; /* Padding inside cards */
-  width: 200px; /* Fixed width for cards */
-  text-align: center; /* Center text inside cards */
-  transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
-  color: #ffea00; /* Text color for card content */
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #ffea00;
 }
 
 .about-card:hover {
-  transform: scale(1.05); /* Scale effect on hover */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .about-card__image {
-  width: 100%; /* Responsive width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 50%; /* Make the image circular */
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
 }
 
 .about-card__name {
-  font-size: 1.5rem; /* Size of the name */
-  margin: 10px 0; /* Space above and below name */
-  color: #ffea00; /* Name color */
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #ffea00;
 }
 
 .about-card__role {
-  color: #ffea00; /* Role color */
+  color: #ffea00;
 }
 
 .about-us {
-  text-align: center; /* Center text */
-  padding: 2rem; /* Padding for the section */
+  text-align: center;
+  padding: 2rem;
 }
 
 .about-us-title {
-  font-size: 3rem; /* Change title size to 3rem */
-  margin-bottom: 1rem; /* Space below title */
-  color: #ffea00; /* Title color */
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffea00;
 }
 
 .about-us-cards {
-  display: flex; /* Flexbox for card layout */
-  justify-content: center; /* Center the cards */
-  flex-wrap: wrap; /* Wrap cards on small screens */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .about-us-card {
-  margin: 1rem; /* Margin around each card */
-  width: 200px; /* Adjust based on your design */
-  border: 1px solid #ffea00; /* Light border for the card */
-  border-radius: 8px; /* Rounded corners */
-  padding: 1rem; /* Padding inside cards */
-  transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+  margin: 1rem;
+  width: 200px;
+  border: 1px solid #ffea00;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .about-us-card:hover {
-  transform: scale(1.05); /* Scale effect on hover */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .about-us-image {
-  width: 100%; /* Responsive width */
-  border-radius: 50%; /* Make the image circular */
+  width: 100%;
+  border-radius: 50%;
 }
 
 .about-us-member-name {
-  font-weight: bold; /* Bold text for member name */
-  margin: 0.5rem 0; /* Space above and below name */
+  font-weight: bold;
+  margin: 0.5rem 0;
 }
 
 .about-us-member-work {
-  color: #ffffff; /* Color for the role */
+  color: #ffffff;
 }
-
 
 .gallery {
   background: #000000;
@@ -312,12 +294,14 @@
   gap: 30px;
   padding: 100px 0 50px 0;
 }
+
 .gallery h1 {
   color:  #ffea00;
   font-size: 3rem;
   margin: 0 auto;
   letter-spacing: 1px;
 }
+
 .gallery .images {
   display: flex;
   gap: 15px;
@@ -325,13 +309,16 @@
   min-width: 1500px;
   margin: 0 auto;
 }
+
 .gallery .images div {
   flex: 1;
 }
+
 .gallery .images img {
   width: 100%;
   height: auto;
 }
+
 @media (max-width: 1520px) {
   .gallery {
     padding: 50px 20px 50px 20px;
@@ -341,14 +328,16 @@
     gap: 25px;
   }
 }
+
 @media (max-width: 1200px) {
   .gallery h1 {
     font-size: 1.6rem;
   }
 }
+
 .Footer {
   padding: 50px 20px;
-  background-color: #ffea00; 
+  background-color: #ffea00;
   font-size: 2rem;
   color: #000000;
   text-align: center;
@@ -384,4 +373,3 @@
   margin-top: 20px;
   border-radius: 10px;
 }
-
