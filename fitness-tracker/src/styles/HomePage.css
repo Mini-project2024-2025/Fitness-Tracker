@@ -149,13 +149,13 @@
 }
 
 .card {
-  background-color: linear-gradient(90deg, rgb(178, 230, 23), rgb(23, 157, 235) 100%);         /* Dark background for cards */
-  color: var(--bg-color);                   /* Text color */
-  padding: 20px;                  /* Padding inside cards */
-  border-radius: 10px;   
-  font-size: 1.5rem;         
-  transition: transform 0.3s;     /* Smooth transition for hover effect */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  background: linear-gradient(90deg, rgb(178, 230, 23), rgb(23, 157, 235) 100%);
+  color: var(--bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .card:hover {
@@ -164,9 +164,9 @@
 }
 
 .features-heading {
-  font-size: 2.5rem;               /* Font size for the heading */
-  color: rgb(230, 177, 34);                  /* Heading color */
-  margin-bottom: 10px;             /* Space below the heading */
+  font-size: 2.5rem;
+  color: #ffea00;
+  margin-bottom: 10px;
 }
 
 .features-quote {
@@ -199,7 +199,7 @@
 }
 
 .about-heading {
-  font-size: 3rem;
+  font-size: 4rem;
   color: #ffea00;
   margin-bottom: 20px;
 }
