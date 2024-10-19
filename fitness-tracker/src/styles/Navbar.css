@@ -5,7 +5,7 @@ section{
   padding: 10rem 8% 2rem;
 }
 header{
-    padding: 2rem 9%;
+    padding: 1rem 9%;
     background: rgba(0,0,0,0.5);
     position: fixed;
     width: 100%;
@@ -24,6 +24,7 @@ header{
   font-weight: 800;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  margin-right: 1rem;
 }
 .logo:hover{
   transform: scale(1.1);
@@ -36,10 +37,10 @@ span{
   display: flex;
 }
 .navbar a{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--text-color);
-    margin-left: 4rem;
+    margin-left: 3rem;
     transition: 0.5s;
     border-bottom: 3px solid transparent;
 }
@@ -58,6 +59,7 @@ span{
     border: 2px solid var(--main-color);
     border-radius: 1rem;
     transition: 0.5s;
+    margin-left: 2rem;
 }
 .nav-btn:hover{
   background: var(--main-color);

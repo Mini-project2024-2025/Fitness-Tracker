@@ -163,8 +163,9 @@
 
 /* Card Styling */
 .card {
-  background-color: #333;         /* Dark background for cards */
-  color: white;                   /* Text color */
+  background: linear-gradient(90deg, rgb(178, 230, 23), rgb(23, 157, 235) 100%);
+  /* background-color: #333;         Dark background for cards */
+  color: var(--bg-color);                   /* Text color */
   padding: 20px;                  /* Padding inside cards */
   border-radius: 10px;   
   font-size: 1.5rem;         
@@ -181,7 +182,7 @@
 /* Features Section Heading */
 .features-heading {
   font-size: 2.5rem;               /* Font size for the heading */
-  color: #ffea00;                  /* Heading color */
+  color: rgb(230, 177, 34);                  /* Heading color */
   margin-bottom: 10px;             /* Space below the heading */
 }
 
@@ -267,7 +268,7 @@
 .about-us-title {
   font-size: 3rem; /* Change title size to 3rem */
   margin-bottom: 1rem; /* Space below title */
-  color: #ffea00; /* Title color */
+  color: rgb(230, 177, 34); /* Title color */
 }
 
 .about-us-cards {
@@ -281,7 +282,7 @@
   width: 200px; /* Adjust based on your design */
   border: 1px solid #ffea00; /* Light border for the card */
   border-radius: 8px; /* Rounded corners */
-  padding: 1rem; /* Padding inside cards */
+  padding: 0rem; /* Padding inside cards */
   transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
 }
 
@@ -313,7 +314,7 @@
   padding: 100px 0 50px 0;
 }
 .gallery h1 {
-  color:  #ffea00;
+  color:  rgb(230, 177, 34);
   font-size: 3rem;
   margin: 0 auto;
   letter-spacing: 1px;
@@ -347,8 +348,8 @@
   }
 }
 .Footer {
-  padding: 50px 20px;
-  background-color: #ffea00; 
+  padding: 40px 20px;
+  background-color: rgb(240, 226, 41); 
   font-size: 2rem;
   color: #000000;
   text-align: center;

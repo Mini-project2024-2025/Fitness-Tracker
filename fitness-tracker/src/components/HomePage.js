@@ -16,7 +16,7 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <section className="hero">
+      <section className="hero" id="home">
         <div className="content">
           <div className="title">
             <h1>LET'S</h1>
@@ -41,7 +41,7 @@ const HomePage = () => {
       </video>
 
       {/* Features Section */}
-      <section className="features">
+      <section className="features" id="features">
         <h2 className="features-heading">Key Features</h2>
         <blockquote className="features-quote">"Your Fitness Journey, made Smarter and Simpler"</blockquote>
         <div className="features-container">
@@ -93,7 +93,7 @@ const HomePage = () => {
       </section>
 
 {/* About Us Section */}
-<section className="about-us">
+<section className="about-us" id="about-us">
   <br />
   <br />
   <h2 className="about-us-title">Our Team</h2>
