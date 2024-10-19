@@ -1,0 +1,41 @@
+/* src/styles/Footer.css */
+
+.footer {
+    background-color: #000000; /* Light background color */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .footer p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  
+  .social-links {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .social-links li {
+    display: inline;
+    margin: 0 15px; /* Space out the social icons */
+  }
+  
+  .social-links a {
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    font-size: 1.2em; /* Icon size */
+  }
+  
+  .social-links a:hover {
+    color: #0056b3; /* Darker color on hover */
+  }
+  
+  .social-links i {
+    margin-right: 5px; /* Space between icon and text */
+  }
