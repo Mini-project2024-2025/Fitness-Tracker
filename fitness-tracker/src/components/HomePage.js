@@ -2,7 +2,6 @@ import React from "react";
 import '../styles/HomePage.css';
 
 const HomePage = () => {
-  // Gallery images array
   const gallery = [
     "/img1.webp",
     "/img2.jpg",
@@ -19,7 +18,7 @@ const HomePage = () => {
       <section className="hero" id="home">
         <div className="content">
           <div className="title">
-            <h1>LET'S</h1>
+            <h1>LET's</h1>
             <h1>GET</h1>
             <h1>MOVING</h1>
           </div>
@@ -34,7 +33,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Background Video Below the Hero Section */}
       <video autoPlay muted loop className="background-video">
         <source src="/Video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -47,7 +45,6 @@ const HomePage = () => {
         <div className="features-container">
           <img src="./img5.jpg" alt="Features" className="features-image" />
           <div className="features-cards">
-            {/* Features List */}
             {[
               { title: "Track Your Workouts", desc: "Log your exercises, sets, reps, and weight to monitor progress." },
               { title: "Monitor Your Progress", desc: "View your workout history, progress charts, and achievements." },
@@ -70,7 +67,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
       <section className="gallery">
         <h1>BETTER BEATS BEST</h1>
         <div className="images">
@@ -110,54 +106,32 @@ const HomePage = () => {
       <p className="about-us-member-work">Frontend Developer</p>
     </div>
 
-    {/* Team Member 2 */}
-    <div className="about-us-card">
-      <img
-        src="/profile2.jpg"  
-        alt="Team Member 2"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Krishnangi Agrawal</h3>
-      <p className="about-us-member-work">Frontend Developer</p>
-    </div>
+          <div className="about-us-card">
+            <img src="/profile2.jpg" alt="Team Member 2" className="about-us-image" />
+            <h3 className="about-us-member-name">Krishnangi Agrawal</h3>
+            <p className="about-us-member-work">Frontend Developer</p>
+          </div>
 
-    {/* Team Member 3 */}
-    <div className="about-us-card">
-      <img
-        src="/profile1.jpg"   
-        alt="Team Member 3"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Vedanshu Maurya</h3>
-      <p className="about-us-member-work">Backend Developer</p>
-    </div>
+          <div className="about-us-card">
+            <img src="/profile1.jpg" alt="Team Member 3" className="about-us-image" />
+            <h3 className="about-us-member-name">Vedanshu Maurya</h3>
+            <p className="about-us-member-work">Backend Developer</p>
+          </div>
 
-    {/* Team Member 4 */}
-    <div className="about-us-card">
-      <img
-        src="/profile2.jpg"  
-        alt="Team Member 4"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Teena Gautam</h3>
-      <p className="about-us-member-work">Frontend Developer</p>
-    </div>
+          <div className="about-us-card">
+            <img src="/profile2.jpg" alt="Team Member 4" className="about-us-image" />
+            <h3 className="about-us-member-name">Teena Gautam</h3>
+            <p className="about-us-member-work">Frontend Developer</p>
+          </div>
 
-    {/* Team Member 5 */}
-    <div className="about-us-card">
-      <img
-        src="/profile1.jpg"   
-        alt="Team Member 5"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Sharad Kumar</h3>
-      <p className="about-us-member-work">Fullstack Developer</p>
-    </div>
-  </div>
-</section>
+          <div className="about-us-card">
+            <img src="/profile1.jpg" alt="Team Member 5" className="about-us-image" />
+            <h3 className="about-us-member-name">Sharad Kumar</h3>
+            <p className="about-us-member-work">Fullstack Developer</p>
+          </div>
+        </div>
+      </section>
 
-
-      {/* Footer Section */}
       <footer className="Footer">
         <h2>Connect with us..</h2>
         <p>Follow us on social media for the latest tips and updates!</p>
