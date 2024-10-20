@@ -13,18 +13,16 @@ body {
 
  
 
- 
- .login-backgroud{
-   /* border: 2px solid green; */
-   width: 1270px;
-   height: 600px;
-   /* margin-left: -220px; */
-   margin-right: 20px;
-   padding: 20px 20px 20px 20px;
-   box-shadow: 10px 0 15px 15px rgb(172, 51, 86);
-       background: url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?cs=srgb&dl=pexels-victorfreitas-841130.jpg&fm=jpg') no-repeat center center/cover;
-
- }
+ .login-background {
+  /* border: 2px solid green; */
+  width: 1270px;
+  height: 600px;
+  /* margin-left: -220px; */
+  margin-right: 20px;
+  padding: 20px; /* Combined padding into shorthand */
+  box-shadow: 10px 0 15px rgb(172, 51, 86);
+  background: url('img17.jpg') no-repeat center/cover; /* Fixed URL syntax */
+}
 
  
  
@@ -36,7 +34,6 @@ body {
    
 
    background-color: rgba(0, 0, 0, 0.8);
-   background: linear-gradient(135deg, #e200da 10%, #00ff88 100% );
    border-radius: 15px;
    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
    text-align: center;
@@ -88,7 +85,7 @@ body {
  }
  
  .register-link a {
-   color: #160eef; /* Link color */
+   color: #ffea00; /* Link color */
    text-decoration: none; /* Remove underline */
  }
  
