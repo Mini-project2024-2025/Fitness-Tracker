@@ -2,14 +2,51 @@
 .hero {
   min-height: 100vh;
   position: relative;
-  background: url(./img12.jpg) rgba(0, 0, 0, 0.75);
-  background-blend-mode: darken;
-  background-size: cover;
+  background-size: cover; /* Ensures the background covers the hero section */
+  background-position: center center; /* Centers the background image */
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   padding: 150px 0 70px 0;
   padding-left: 7rem;
+
+  /* Add keyframe animation */
+  animation: changeBackground 14s infinite; /* 4 images, 3 seconds each */
+  background-blend-mode: darken;
+}
+
+/* Keyframes for background images animation */
+@keyframes changeBackground {
+  0% {
+    background: url(./img12.jpg) rgba(0, 0, 0, 0.75);
+    background-size: cover;
+    background-position: center 30%; /* Push the image down */
+    background-blend-mode: darken;
+  }
+  25% {
+    background: url(./img13.jpg) rgba(0, 0, 0, 0.75);
+    background-size: cover;
+    background-position: center 30%; /* Push the image down */
+    background-blend-mode: darken;
+  }
+  50% {
+    background: url(./img16.jpg) rgba(0, 0, 0, 0.75);
+    background-size: cover;
+    background-position: center 30%; /* Push the image down */
+    background-blend-mode: darken;
+  }
+  75% {
+    background: url(./img3.jpg) rgba(0, 0, 0, 0.75);
+    background-size: cover;
+    background-position: center 30%; /* Push the image down */
+    background-blend-mode: darken;
+  }
+  100% {
+    background: url(./img12.jpg) rgba(0, 0, 0, 0.75); /* Loop back to first image */
+    background-size: cover;
+    background-position: center 30%; /* Push the image down */
+    background-blend-mode: darken;
+  }
 }
 
 .hero .content {
@@ -76,7 +113,7 @@
 
 @media (max-width: 880px) {
   .hero {
-    background-position: center;
+    background-position: center 30%;
   }
   .hero .content .title {
     font-size: 2.45rem;
@@ -88,7 +125,7 @@
 
 @media (max-width: 600px) {
   .hero {
-    background-position: bottom;
+    background-position: center 30%;
   }
   .hero .content .title {
     font-size: 2.2rem;
@@ -114,6 +151,7 @@
     align-items: flex-start;
   }
 }
+
 
 .features {
   display: flex;
@@ -373,7 +411,7 @@
 }
 
 .social-links a:hover {
-  color: #0077c7b6;
+  color: #c70000b6;
 }
 
 .image {
