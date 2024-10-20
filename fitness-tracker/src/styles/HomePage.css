@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Kablammo&family=Londrina+Sketch&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
 .hero {
   min-height: 100vh;
   position: relative;
@@ -23,6 +24,7 @@
 }
 
 .hero .content .sub-title p {
+  font-family: 'Playwrite England SemiJoined', cursive;
   font-weight: 400;
   color: whitesmoke;
   font-size: 1.8rem;
@@ -251,6 +253,10 @@
   font-size: 3rem; /* Change title size to 3rem */
   margin-bottom: 1rem; /* Space below title */
   color: rgb(230, 177, 34); /* Title color */
+  transition: 0.3s ease-in-out;
+}
+.about-us-title:hover{
+  transform: scale(1.1);
 }
 
 .about-us-cards {
@@ -300,8 +306,11 @@
   font-size: 3rem;
   margin: 0 auto;
   letter-spacing: 1px;
+  transition: 0.3s ease-in-out;
 }
-
+.gallery h1:hover{
+  transform: scale(1.1);
+}
 .gallery .images {
   display: flex;
   gap: 15px;

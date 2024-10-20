@@ -1,6 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
+import Login from './pages/Login';
 // import Dashboard from './components/Dashboard';
 // import FitnessLog from './components/FitnessLog';
 // import ProfilePage from './components/ProfilePage';
@@ -16,11 +18,14 @@ import './styles/HomePage.css';
 
 function App(){
   return(
-    <div className="App">
+    <Router>
         <Navbar/>
-        <HomePage/>
-        
-    </div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+    </Router>
+    
   );
 }
 export default App;

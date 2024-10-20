@@ -1,4 +1,5 @@
 /* src/styles/Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Kablammo&family=Londrina+Sketch&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
 
 section{
   min-height: 100vh;
@@ -37,8 +38,10 @@ span{
   display: flex;
 }
 .navbar a{
+    font-family: 'Londrina Sketch', cursive;
     font-size: 1.5rem;
     font-weight: 500;
+    font-family: 'Playwrite England SemiJoined', cursive;
     color: var(--text-color);
     margin-left: 3rem;
     transition: 0.5s;
