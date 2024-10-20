@@ -14,7 +14,7 @@ const Navbar = () => {
         <li><a href="#Dashboard">Dashboard</a></li>
         <li><a href="#Diet Planner">Diet Planner</a></li>
         <li><a href="#Exercise">Exercise</a></li>
-        <li><a href="#Help by AI">Help by AI</a></li>
+        <li><a href="/#Help by AI">Help by AI</a></li>
         <li><a href="#about-us">About Us</a></li>
       </ul>
       <div className="top-btn">

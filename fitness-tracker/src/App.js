@@ -6,9 +6,11 @@ import HomePage from './components/HomePage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
+
 import './App.css';
 import './styles/Navbar.css';
 import './styles/HomePage.css';
+
 
 function App() {
   return (

@@ -88,11 +88,13 @@ const HomePage = () => {
         </div>
       </section>
 
-{/* About Us Section */}
-<section className="about-us" id="about-us">
+      <section className="about-us" id="about-us">
   <br />
   <br />
   <h2 className="about-us-title">Our Team</h2>
+  <p className="about-us-description">
+    At Fit Zura, our mission is to empower individuals to stay consistent in their fitness journey by offering a personalized, interactive experience. Our platform allows users to log and track their fitness activities in real-time, using both manual inputs and our custom-built NLP chatbot. Through engaging, conversational interactions, users can ask questions about their progress and receive instant, insightful responses. With clear data visualizations and personalized feedback, Fit Zura helps users stay motivated and achieve their fitness goals efficiently.
+  </p>
   <br />
   <div className="about-us-cards">
     {/* Team Member 1 */}

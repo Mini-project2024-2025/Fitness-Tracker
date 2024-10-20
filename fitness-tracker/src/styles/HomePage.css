@@ -89,8 +89,8 @@
 
 .hero .content .buttons button:hover {
   cursor: pointer;
-  background: #ffd5008c;
-  color: whitesmoke;
+  background: #ffcc00ef;
+  color: rgb(0, 0, 0);
   transition: 0.3s;
 }
 
@@ -207,6 +207,11 @@
   font-size: 2.5rem;
   color: #ffea00;
   margin-bottom: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.features-heading:hover{
+  transform: scale(1.1);
 }
 
 .features-quote {
@@ -233,83 +238,51 @@
   }
 }
 
-.about {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.about-heading {
-  font-size: 4rem;
-  color: #ffea00;
-  margin-bottom: 20px;
-}
-
-.about-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.about-card {
-  background-color: #000000;
-  border-radius: 8px;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  color: #ffea00;
-}
-
-.about-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.about-card__image {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-}
-
-.about-card__name {
-  font-size: 1.5rem;
-  margin: 10px 0;
-  color: #ffea00;
-}
-
-.about-card__role {
-  color: #ffea00;
-}
-
 .about-us {
   text-align: center;
   padding: 2rem;
+  overflow: hidden; /* Prevent overflow from this section */
 }
 
 .about-us-title {
-  font-size: 3rem; /* Change title size to 3rem */
-  margin-bottom: 1rem; /* Space below title */
+  font-size: 3rem;
+  margin-bottom: 1rem;
   color: rgb(230, 177, 34); /* Title color */
   transition: 0.3s ease-in-out;
 }
-.about-us-title:hover{
+
+.about-us-title:hover {
   transform: scale(1.1);
+}
+
+.about-us-description {
+  color: #ffffff; /* Text color set to white */
+  font-size: 1.3rem; /* Font size */
+  max-width: 900px; /* Increased maximum width */
+  margin: 0 auto 20px; /* Center the text and add space below */
+  line-height: 1.8; /* Increased line height for readability */
+  padding: 0 20px; /* Horizontal padding for extra spacing */
 }
 
 .about-us-cards {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: center; /* Center the cards */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
 }
 
 .about-us-card {
-  margin: 1rem; /* Margin around each card */
-  width: 200px; /* Adjust based on your design */
-  border: 1px solid #ffea00; /* Light border for the card */
+  background-color: #000000; /* Card background color */
+  width: 150px; /* Further reduced width to avoid overflow */
   border-radius: 8px; /* Rounded corners */
-  padding: 0rem; /* Padding inside cards */
-  transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+  padding: 1rem; 
+  margin: 30px; /* Add some margin for space between cards */
+  transition: transform 0.3s, box-shadow 0.3s; 
+  text-align: center; 
+  color: #ffea00; /* Text color in cards */
+  border: 1px solid #ffea00; /* Added yellow border */
 }
 
 .about-us-card:hover {
@@ -318,18 +291,26 @@
 }
 
 .about-us-image {
-  width: 100%;
-  border-radius: 50%;
+  width: 110px; /* Increased image size */
+  height: 110px; /* Increased height to match width */
+  border-radius: 50%; /* Keep it circular */
+  object-fit: cover; /* Maintain aspect ratio */
+  border: none; /* Remove any border */
 }
+
 
 .about-us-member-name {
   font-weight: bold;
-  margin: 0.5rem 0;
+  font-size: 1.3rem; /* Font size for names */
+  margin: 1rem 0; /* Increased margin for more spacing (top and bottom) */
+  color: #ffea00; /* Name color */
 }
 
 .about-us-member-work {
-  color: #ffffff;
+  font-size: 1.2rem; /* Font size for roles */
+  color: #ffffff; /* Subtle contrast for roles */
 }
+
 
 .gallery {
   background: #000000;
