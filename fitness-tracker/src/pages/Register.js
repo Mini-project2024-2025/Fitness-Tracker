@@ -8,12 +8,24 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate registration logic
-    console.log('Registering with:', { name, email, password });
-    alert('Registration Successful');
+  
+    const response = await fetch('http://localhost:5000/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password }),
+    });
+  
+    const data = await response.json();
+  
+    if (response.ok) {
+      alert('Registration Successful');
+    } else {
+      alert(data.message || 'Registration Failed');
+    }
   };
+  
 
   return (
     <div className='register-background'>

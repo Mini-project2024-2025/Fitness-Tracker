@@ -1,1 +1,0 @@
-<!-- Overall project documentation -->
