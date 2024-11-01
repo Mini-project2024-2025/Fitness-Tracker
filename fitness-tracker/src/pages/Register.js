@@ -1,31 +1,32 @@
 // src/pages/Register.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Register.css'; // Import the CSS file for styling
+import { Link, useNavigate } from 'react-router-dom';
+import './Register.css';
 
 function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const response = await fetch('http://localhost:5000/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),
     });
-  
+
     const data = await response.json();
-  
+
     if (response.ok) {
       alert('Registration Successful');
+      navigate('/login'); // Redirect to the login page
     } else {
       alert(data.message || 'Registration Failed');
     }
   };
-  
 
   return (
     <div className='register-background'>

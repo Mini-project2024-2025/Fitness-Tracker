@@ -1,31 +1,32 @@
 // src/pages/Login.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Login.css'; // Import the CSS file for styling
+import { Link, useNavigate } from 'react-router-dom';
+import './Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const response = await fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
-  
+
     const data = await response.json();
-  
+
     if (response.ok) {
       alert('Login Successful');
-      // Save token if needed
       localStorage.setItem('token', data.token);
+      navigate('/'); // Redirect to the home page
     } else {
       alert(data.message || 'Login Failed');
     }
   };
-  
 
   return (
     <div className='login-background'>
