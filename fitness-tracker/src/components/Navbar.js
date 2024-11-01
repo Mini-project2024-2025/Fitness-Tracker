@@ -1,8 +1,6 @@
-// Navigation Bar Component
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
-
 
 const Navbar = () => {
   return (
@@ -14,7 +12,7 @@ const Navbar = () => {
         <li><a href="#Dashboard">Dashboard</a></li>
         <li><a href="#Diet Planner">Diet Planner</a></li>
         <li><a href="#Exercise">Exercise</a></li>
-        <li><a href="/#Help by AI">Help by AI</a></li>
+        <li><Link to="/chatbot">Chatbot</Link></li>
         <li><a href="#about-us">About Us</a></li>
       </ul>
       <div className="top-btn">
@@ -22,6 +20,6 @@ const Navbar = () => {
       </div>
     </header>
   );
-}
+};
 
 export default Navbar;
