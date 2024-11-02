@@ -14,7 +14,8 @@ const Chatbot = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5000/api/chatbot', {
+      // Updated fetch URL to the new chatbot backend
+      const res = await fetch('http://localhost:5001/api/chatbot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
