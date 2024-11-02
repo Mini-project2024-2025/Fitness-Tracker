@@ -1,9 +1,11 @@
 // server.js
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const fetch = require('node-fetch'); // To make API requests
-require('dotenv').config(); // Load environment variables
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import fetch from 'node-fetch'; // Use import
+import dotenv from 'dotenv'; // Import dotenv
+
+dotenv.config(); // Load environment variables
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -18,7 +20,7 @@ app.post('/api/chatbot', async (req, res) => {
 
     try {
         // Call AI Model API (replace URL with the actual endpoint for Gemini or your AI service)
-        const apiResponse = await fetch('https://api.gemini.com/v1/answer', {
+        const apiResponse = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=GEMINI_API_KEY', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
