@@ -14,7 +14,6 @@ const Chatbot = () => {
     e.preventDefault();
 
     try {
-      // Updated fetch URL to the new chatbot backend
       const res = await fetch('http://localhost:5001/api/chatbot', {
         method: 'POST',
         headers: {
@@ -24,12 +23,28 @@ const Chatbot = () => {
       });
 
       const data = await res.json();
-      setResponse(data.response);
+      setResponse(formatResponse(data.response));  // Format the response
       setQuestion('');  // Clear the question input after submitting
     } catch (error) {
       console.error('Error:', error);
       setResponse('There was an error processing your request.');
     }
+  };
+
+  // Function to format the response in a consistent manner
+  const formatResponse = (response) => {
+    // Check if the response is already formatted as HTML
+    const isHtmlResponse = response.startsWith('<h2>');
+
+    if (!isHtmlResponse) {
+      return `
+        <h2>Response:</h2>
+        <p>${response}</p>
+      `;
+    }
+
+    // If response is already HTML, return it directly
+    return response;
   };
 
   return (
@@ -82,9 +97,7 @@ const Chatbot = () => {
 
       {/* Response section */}
       <div className="chat-response">
-        <div id="responseBox">
-          {response}
-        </div>
+        <div id="responseBox" dangerouslySetInnerHTML={{ __html: response }}></div>
       </div>
     </div>
   );

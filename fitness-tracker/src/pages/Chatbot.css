@@ -8,6 +8,7 @@
     padding: 20px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     margin-top: 70px; /* Increased top margin to avoid overlap with the navbar */
+    transition: background-color 0.3s ease; /* Smooth background transition */
 }
 
 /* Left side: Input section */
@@ -17,6 +18,11 @@
     background-color: #1E1E1E; /* Darker gray for input section */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     border-radius: 8px;
+    transition: transform 0.2s ease; /* Animation for hover effect */
+}
+
+.chat-input:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
 }
 
 /* Right side: AI response section */
@@ -26,6 +32,56 @@
     background-color: #2A2A2A; /* Slightly lighter gray for response section */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     border-radius: 8px;
+    overflow-y: auto; /* Allow scrolling for long responses */
+    transition: transform 0.2s ease; /* Animation for hover effect */
+}
+
+.chat-response:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Chat response box */
+#responseBox {
+    padding: 15px;
+    background-color: #3A3A3A; /* Match input field color for consistency */
+    border-radius: 8px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column; /* Arrange content in a column */
+    color: #E0E0E0; /* Light gray text for visibility */
+    font-size: 16px; /* Increase text size for better readability */
+    animation: fadeIn 0.5s; /* Fade-in animation for new responses */
+}
+
+/* Headings */
+#responseBox h2, #responseBox h3 {
+    margin: 10px 0;
+    font-size: 1.5em; /* Heading size */
+    color: #FFEA00; /* Bright yellow for headings for emphasis */
+}
+
+/* Paragraph styling */
+#responseBox p {
+    margin: 5px 0; /* Space between paragraphs */
+}
+
+/* List styling */
+#responseBox ul {
+    margin: 10px 0; /* Space above and below lists */
+    padding-left: 20px; /* Indent for lists */
+}
+
+/* List items */
+#responseBox li {
+    margin: 5px 0; /* Space between list items */
+}
+
+/* Code block styling (if you plan to use any code formatting) */
+#responseBox code {
+    background-color: #2A2A2A; /* Slightly lighter background for code */
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #FFD600; /* Color for code text */
 }
 
 /* Form styling */
@@ -37,6 +93,13 @@ input, select, textarea {
     border: 1px solid #555; /* Slightly darker gray border */
     border-radius: 5px;
     color: #E0E0E0; /* Light gray text */
+    font-size: 16px; /* Increase text size for better readability */
+    transition: border-color 0.2s ease; /* Smooth border color transition */
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #FFEA00; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
 }
 
 /* Submit button */
@@ -48,19 +111,21 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 16px; /* Increase text size for better readability */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth button transitions */
 }
 
 button:hover {
     background-color: #FFD600; /* Darker yellow on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
-/* Chat response box */
-#responseBox {
-    padding: 15px;
-    background-color: #3A3A3A; /* Match input field color for consistency */
-    border-radius: 8px;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    color: #E0E0E0; /* Light gray text for visibility */
+/* Animation for fading in new messages */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
