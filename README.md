@@ -1,4 +1,3 @@
-Fit Zura
 Welcome to Fit Zura - your personalized, interactive fitness tracker designed to empower you on your fitness journey!
 
 About Fit Zura
