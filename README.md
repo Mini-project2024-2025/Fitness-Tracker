@@ -1,11 +1,9 @@
 Welcome to Fit Zura - your personalized, interactive fitness tracker designed to empower you on your fitness journey!
 
 About Fit Zura
-
 At Fit Zura, our mission is to empower individuals to stay consistent in their fitness journey by offering a personalized, interactive experience. Our platform is designed for users who want a convenient and engaging way to log and track their fitness activities in real time. With Fit Zura, you’ll experience an intuitive interface that combines both manual inputs and a custom-built NLP chatbot to enhance your fitness tracking experience.
 
 Key Features
-
 Real-Time Activity Logging: Easily log your workouts, steps, calories, and more with real-time tracking.
 Interactive NLP Chatbot: Ask questions about your progress or seek guidance. Our chatbot is here to provide instant, insightful responses.
 Data Visualizations: See clear, visually appealing data representations to monitor your achievements and track improvements.
