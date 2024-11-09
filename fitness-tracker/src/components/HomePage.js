@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const gallery = [
     "/img1.webp",
     "/img2.jpg",
@@ -28,7 +31,7 @@ const HomePage = () => {
           </div>
           <div className="buttons">
             <button>Start Your Journey</button>
-            <button>Discover Your Plan</button>
+            <button onClick={() => navigate('/goal-setting')}>Discover Your Plan</button> {/* Navigate to goal-setting */}
           </div>
         </div>
       </section>
@@ -45,10 +48,14 @@ const HomePage = () => {
         <div className="features-container">
           <img src="./img5.jpg" alt="Features" className="features-image" />
           <div className="features-cards">
-            {[
+            {[ 
               { title: "Track Your Workouts", desc: "Log your exercises, sets, reps, and weight to monitor progress." },
               { title: "Monitor Your Progress", desc: "View your workout history, progress charts, and achievements." },
-              { title: "Set Goals and Reminders", desc: "Set fitness goals, reminders, and notifications to stay motivated." },
+              { 
+                title: "Set Goals and Reminders", 
+                desc: "Set fitness goals, reminders, and notifications to stay motivated.", 
+                // action: () => navigate('/set-goals') // Uncomment to add navigation here
+              },
               { title: "Nutrition Tracking", desc: "Log your meals and track your daily calorie intake and nutritional information." },
               { title: "Customizable Workout Plans", desc: "Create personalized workout plans based on your fitness goals and preferences." },
               { title: "Wearable Device Integration", desc: "Sync data from wearable devices for seamless tracking." },
@@ -57,7 +64,11 @@ const HomePage = () => {
               { title: "Stress Management", desc: "Provide tips and resources for managing stress through fitness and wellness practices." },
               { title: "Premium Features", desc: "Subscription-based access to personalized coaching, advanced analytics, and exclusive content." }
             ].map((feature, index) => (
-              <div className="card" key={index}>
+              <div 
+                className="card" 
+                key={index} 
+                onClick={feature.action ? feature.action : null} // Add click handler if it exists
+              >
                 <h1>{feature.title}</h1>
                 <br />
                 <h4>{feature.desc}</h4>
@@ -67,6 +78,7 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
       <section className="gallery">
         <h1>BETTER BEATS BEST</h1>
         <div className="images">
@@ -88,25 +100,21 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* About Us Section */}
       <section className="about-us" id="about-us">
-  <br />
-  <br />
-  <h2 className="about-us-title">Our Team</h2>
-  <p className="about-us-description">
-    At Fit Zura, our mission is to empower individuals to stay consistent in their fitness journey by offering a personalized, interactive experience. Our platform allows users to log and track their fitness activities in real-time, using both manual inputs and our custom-built NLP chatbot. Through engaging, conversational interactions, users can ask questions about their progress and receive instant, insightful responses. With clear data visualizations and personalized feedback, Fit Zura helps users stay motivated and achieve their fitness goals efficiently.
-  </p>
-  <br />
-  <div className="about-us-cards">
-    {/* Team Member 1 */}
-    <div className="about-us-card">
-      <img
-        src="/profile1.jpg"  /* Replace with actual image path */
-        alt="Team Member 1"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Priyanshu Yadav</h3>
-      <p className="about-us-member-work">Frontend Developer</p>
-    </div>
+        <br />
+        <br />
+        <h2 className="about-us-title">Our Team</h2>
+        <p className="about-us-description">
+          At Fit Zura, our mission is to empower individuals to stay consistent in their fitness journey by offering a personalized, interactive experience. Our platform allows users to log and track their fitness activities in real-time, using both manual inputs and our custom-built NLP chatbot. Through engaging, conversational interactions, users can ask questions about their progress and receive instant, insightful responses. With clear data visualizations and personalized feedback, Fit Zura helps users stay motivated and achieve their fitness goals efficiently.
+        </p>
+        <br />
+        <div className="about-us-cards">
+          <div className="about-us-card">
+            <img src="/profile1.jpg" alt="Team Member 1" className="about-us-image" />
+            <h3 className="about-us-member-name">Priyanshu Yadav</h3>
+            <p className="about-us-member-work">Frontend Developer</p>
+          </div>
 
           <div className="about-us-card">
             <img src="/profile2.jpg" alt="Team Member 2" className="about-us-image" />
@@ -134,32 +142,29 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="Footer">
         <h2>Connect with us..</h2>
         <p>Follow us on social media for the latest tips and updates!</p>
         <ul className="social-links">
           <li>
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook-f" />
-              Facebook
+              <i className="fab fa-facebook-f" /> Facebook
             </a>
           </li>
           <li>
             <a href="https://www.x.com/" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-X" />
-              X
+              <i className="fab fa-X" /> X
             </a>
           </li>
           <li>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-linkedin-in" />
-              LinkedIn
+              <i className="fab fa-linkedin-in" /> LinkedIn
             </a>
           </li>
           <li>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-instagram" />
-              Instagram
+              <i className="fab fa-instagram" /> Instagram
             </a>
           </li>
         </ul>
