@@ -13,6 +13,16 @@ const HomePage = () => {
     "/img6.jpg",
   ];
 
+  // Function to handle button click for "Start Your Journey"
+  const handleStartJourney = () => {
+    window.location.href = '/dashboard'; // Redirect to dashboard
+  };
+
+  // Function to handle button click for "Discover Your Plan"
+  const handleDiscoverPlan = () => {
+    window.location.href = '/plans'; // Redirect to plans page
+  };
+
   return (
     <div className="homepage">
       <section className="hero" id="home">
@@ -27,8 +37,9 @@ const HomePage = () => {
             <p>Unleash Your Potential</p>
           </div>
           <div className="buttons">
-            <button>Start Your Journey</button>
-            <button>Discover Your Plan</button>
+            {/* Adding onClick event to handle navigation */}
+            <button onClick={handleStartJourney}>Start Your Journey</button>
+            <button onClick={handleDiscoverPlan}>Discover Your Plan</button>
           </div>
         </div>
       </section>
@@ -45,7 +56,7 @@ const HomePage = () => {
         <div className="features-container">
           <img src="./img5.jpg" alt="Features" className="features-image" />
           <div className="features-cards">
-            {[
+            {[ // Map over features array to generate cards dynamically
               { title: "Track Your Workouts", desc: "Log your exercises, sets, reps, and weight to monitor progress." },
               { title: "Monitor Your Progress", desc: "View your workout history, progress charts, and achievements." },
               { title: "Set Goals and Reminders", desc: "Set fitness goals, reminders, and notifications to stay motivated." },
@@ -89,24 +100,24 @@ const HomePage = () => {
       </section>
 
       <section className="about-us" id="about-us">
-  <br />
-  <br />
-  <h2 className="about-us-title">Our Team</h2>
-  <p className="about-us-description">
-    At Fit Zura, our mission is to empower individuals to stay consistent in their fitness journey by offering a personalized, interactive experience. Our platform allows users to log and track their fitness activities in real-time, using both manual inputs and our custom-built NLP chatbot. Through engaging, conversational interactions, users can ask questions about their progress and receive instant, insightful responses. With clear data visualizations and personalized feedback, Fit Zura helps users stay motivated and achieve their fitness goals efficiently.
-  </p>
-  <br />
-  <div className="about-us-cards">
-    {/* Team Member 1 */}
-    <div className="about-us-card">
-      <img
-        src="/profile1.jpg"  /* Replace with actual image path */
-        alt="Team Member 1"
-        className="about-us-image"
-      />
-      <h3 className="about-us-member-name">Priyanshu Yadav</h3>
-      <p className="about-us-member-work">Frontend Developer</p>
-    </div>
+        <br />
+        <br />
+        <h2 className="about-us-title">Our Team</h2>
+        <p className="about-us-description">
+          At Fit Zura, our mission is to empower individuals to stay consistent in their fitness journey by offering a personalized, interactive experience. Our platform allows users to log and track their fitness activities in real-time, using both manual inputs and our custom-built NLP chatbot. Through engaging, conversational interactions, users can ask questions about their progress and receive instant, insightful responses. With clear data visualizations and personalized feedback, Fit Zura helps users stay motivated and achieve their fitness goals efficiently.
+        </p>
+        <br />
+        <div className="about-us-cards">
+          {/* Team Member 1 */}
+          <div className="about-us-card">
+            <img
+              src="/profile1.jpg"  /* Replace with actual image path */
+              alt="Team Member 1"
+              className="about-us-image"
+            />
+            <h3 className="about-us-member-name">Priyanshu Yadav</h3>
+            <p className="about-us-member-work">Frontend Developer</p>
+          </div>
 
           <div className="about-us-card">
             <img src="/profile2.jpg" alt="Team Member 2" className="about-us-image" />

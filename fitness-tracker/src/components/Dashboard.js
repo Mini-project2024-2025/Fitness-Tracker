@@ -110,7 +110,9 @@ const Dashboard = () => {
                 </>
             ) : (
                 <div className="dashboard-warning-message">
-                    <h2>Login First to Access the Dashboard</h2>
+                    <h2>Warning ⚠️</h2>
+                    <br></br>
+                    <h3>Login First to Access the Dashboard</h3>
                 </div>
             )}
         </div>
