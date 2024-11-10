@@ -4,6 +4,9 @@ require('dotenv').config(); // This line loads values from .env file
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const authMiddleware = require('./middlewares/authMiddleware');  // Import authentication middleware
+const User = require('./models/User');  // User model for accessing data
 const app = express();
 
 // Middleware
@@ -27,8 +30,42 @@ app.get('/', (req, res) => {
 });
 
 // Routes
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth');  // Assuming auth.js is your authentication routes
 app.use('/api/auth', authRoutes);
+
+// Dashboard routes for authenticated user
+app.get('/api/dashboard', authMiddleware, async (req, res) => {
+    try {
+        // Fetch user data by their ID, excluding password field
+        const user = await User.findById(req.user).select('-password');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json({ user });  // Send the user data to the frontend
+    } catch (err) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Endpoint to add workout data
+app.post('/api/add-workout', authMiddleware, async (req, res) => {
+    const { exerciseName, sets, reps, date } = req.body;
+    
+    try {
+        const user = await User.findById(req.user);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Add workout data to the user's record
+        user.workouts.push({ exerciseName, sets, reps, date });
+        await user.save();
+
+        res.status(200).json({ message: 'Workout added successfully' });
+    } catch (err) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
