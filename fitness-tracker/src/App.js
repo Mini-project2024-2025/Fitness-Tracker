@@ -4,13 +4,16 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Chatbot from './pages/Chatbot';
+import Login from './components/Login';
+import Register from './components/Register';
+import Chatbot from './components/Chatbot';
 
 import './App.css';
 import './styles/Navbar.css';
 import './styles/HomePage.css';
+import './styles/Chatbot.css';
+import './styles/Login.css';
+import './styles/Register.css';
 
 function App() {
   return (

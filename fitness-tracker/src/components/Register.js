@@ -1,7 +1,7 @@
 // src/pages/Register.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Register.css';
+import '../styles/Register.css';
 
 function Register() {
   const [name, setName] = useState('');
