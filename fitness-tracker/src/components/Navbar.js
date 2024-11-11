@@ -20,7 +20,6 @@ const Navbar = () => {
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li><a href="#diet-planner">Diet Planner</a></li>
                 <li><a href="#exercise">Exercise</a></li>
-                <li><Link to="/chatbot">Chatbot</Link></li>
                 <li><a href="#about-us">About Us</a></li>
             </ul>
             <div className="top-btn">

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import Chatbot from "./Chatbot";
 import '../styles/HomePage.css';
 
 const HomePage = () => {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const gallery = [
     "/img1.webp",
     "/img2.jpg",
@@ -23,6 +25,11 @@ const HomePage = () => {
     window.location.href = '/plans'; // Redirect to plans page
   };
 
+  // Toggle the chatbot visibility
+  const toggleChatbot = () => {
+    setIsChatbotOpen(!isChatbotOpen);
+  };
+
   return (
     <div className="homepage">
       <section className="hero" id="home">
@@ -37,7 +44,6 @@ const HomePage = () => {
             <p>Unleash Your Potential</p>
           </div>
           <div className="buttons">
-            {/* Adding onClick event to handle navigation */}
             <button onClick={handleStartJourney}>Start Your Journey</button>
             <button onClick={handleDiscoverPlan}>Discover Your Plan</button>
           </div>
@@ -100,43 +106,32 @@ const HomePage = () => {
       </section>
 
       <section className="about-us" id="about-us">
-        <br />
-        <br />
         <h2 className="about-us-title">Our Team</h2>
         <p className="about-us-description">
           At Fit Zura, our mission is to empower individuals to stay consistent in their fitness journey by offering a personalized, interactive experience. Our platform allows users to log and track their fitness activities in real-time, using both manual inputs and our custom-built NLP chatbot. Through engaging, conversational interactions, users can ask questions about their progress and receive instant, insightful responses. With clear data visualizations and personalized feedback, Fit Zura helps users stay motivated and achieve their fitness goals efficiently.
         </p>
-        <br />
         <div className="about-us-cards">
-          {/* Team Member 1 */}
+          {/* Team Members */}
           <div className="about-us-card">
-            <img
-              src="/profile1.jpg"  /* Replace with actual image path */
-              alt="Team Member 1"
-              className="about-us-image"
-            />
+            <img src="/profile1.jpg" alt="Team Member 1" className="about-us-image" />
             <h3 className="about-us-member-name">Priyanshu Yadav</h3>
             <p className="about-us-member-work">Frontend Developer</p>
           </div>
-
           <div className="about-us-card">
             <img src="/profile2.jpg" alt="Team Member 2" className="about-us-image" />
             <h3 className="about-us-member-name">Krishnangi Agrawal</h3>
             <p className="about-us-member-work">Frontend Developer</p>
           </div>
-
           <div className="about-us-card">
             <img src="/profile1.jpg" alt="Team Member 3" className="about-us-image" />
             <h3 className="about-us-member-name">Vedanshu Maurya</h3>
             <p className="about-us-member-work">Backend Developer</p>
           </div>
-
           <div className="about-us-card">
             <img src="/profile2.jpg" alt="Team Member 4" className="about-us-image" />
             <h3 className="about-us-member-name">Teena Gautam</h3>
             <p className="about-us-member-work">Frontend Developer</p>
           </div>
-
           <div className="about-us-card">
             <img src="/profile1.jpg" alt="Team Member 5" className="about-us-image" />
             <h3 className="about-us-member-name">Sharad Kumar</h3>
@@ -144,6 +139,14 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Chatbot Shortcut Button */}
+      <button className="chatbot-shortcut" onClick={toggleChatbot}>
+        💬
+      </button>
+
+      {/* Chatbot Component */}
+      {isChatbotOpen && <Chatbot />}
 
       <footer className="Footer">
         <h2>Connect with us..</h2>
