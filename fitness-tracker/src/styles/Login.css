@@ -1,17 +1,4 @@
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-   /* background: linear-gradient(135deg, #1e3c72 0%, #3f4042 100%); */
-   
-   display: flex;
-   /* justify-content: center; */
-   font-family: 'Arial', sans-serif; 
- }
-
-
- 
 
  .login-background {
   /* border: 2px solid green; */

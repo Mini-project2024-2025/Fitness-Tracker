@@ -47,9 +47,45 @@ app.get('/api/dashboard', authMiddleware, async (req, res) => {
     }
 });
 
+// Function to calculate stats for the current day
+const calculateDashboardStats = (workouts) => {
+    const today = new Date().setHours(0, 0, 0, 0); // Start of today at midnight
+
+// Calculate total calories burned today
+const totalCalories = workouts
+    .filter(workout => new Date(workout.date).setHours(0, 0, 0, 0) === today)
+    .reduce((sum, workout) => sum + (workout.calories * workout.duration), 0);
+
+    // Calculate total number of workouts today
+    const totalWorkouts = workouts.filter(workout => new Date(workout.date).setHours(0, 0, 0, 0) === today).length;
+
+    // Calculate average calories burned per workout today
+    const avgCaloriesPerWorkout = totalWorkouts === 0 ? 0 : totalCalories / totalWorkouts;
+
+    return { totalCalories, totalWorkouts, avgCaloriesPerWorkout };
+};
+
+// New endpoint to fetch dashboard statistics
+app.get('/api/dashboard/stats', authMiddleware, async (req, res) => {
+    try {
+        const user = await User.findById(req.user).populate('workouts'); // Ensure workouts are populated
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const stats = calculateDashboardStats(user.workouts);
+
+        // Return the statistics to the frontend
+        res.json(stats);
+    } catch (err) {
+        console.error('Error in calculating dashboard stats:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 // Endpoint to add workout data
 app.post('/api/add-workout', authMiddleware, async (req, res) => {
-    const { exerciseName, sets, reps, date } = req.body;
+    const { exerciseName, sets, reps, date, intensity, duration, calories } = req.body;
     
     try {
         const user = await User.findById(req.user);
@@ -58,10 +94,16 @@ app.post('/api/add-workout', authMiddleware, async (req, res) => {
         }
 
         // Add workout data to the user's record
-        user.workouts.push({ exerciseName, sets, reps, date });
+        user.workouts.push({ exerciseName, sets, reps, date, intensity, duration, calories });
         await user.save();
 
-        res.status(200).json({ message: 'Workout added successfully' });
+        // Recalculate and fetch updated stats after adding the workout
+        const updatedStats = calculateDashboardStats(user.workouts);
+
+        res.status(200).json({
+            message: 'Workout added successfully',
+            stats: updatedStats  // Send the updated stats back in the response
+        });
     } catch (err) {
         res.status(500).json({ message: 'Server error' });
     }

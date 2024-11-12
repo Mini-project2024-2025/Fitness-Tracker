@@ -11,6 +11,9 @@ const userSchema = new mongoose.Schema({
             sets: { type: Number, required: true },
             reps: { type: Number, required: true },
             date: { type: Date, required: true },
+            intensity: { type: String, required: true },  // Low, Medium, High
+            duration: { type: Number, required: true },  // Duration in minutes
+            calories: { type: Number, required: true }   // Calories burned for the workout
         }
     ]
 }, { timestamps: true });
