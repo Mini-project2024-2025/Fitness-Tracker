@@ -18,7 +18,7 @@ const Navbar = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><a href="#features">Key Features</a></li>
                 <li><Link to="/dashboard">Dashboard</Link></li>
-                <li><a href="#diet-planner">Diet Planner</a></li>
+                <li><Link to="/dietPlanner">Diet Planner</Link></li>
                 <li><a href="#exercise">Exercise</a></li>
                 <li><a href="#about-us">About Us</a></li>
             </ul>

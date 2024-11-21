@@ -57,6 +57,40 @@ app.post('/api/chatbot', async (req, res) => {
         res.status(500).json({ response: 'There was an error processing your request.' });
     }
 });
+app.post('/api/dietPlanner', async (req, res) => {
+    const { age, gender, height, weight,targetWeight, goal, dietType, mealTime, question } = req.body;
+
+    // Construct a clear and structured prompt for the AI
+    const prompt = `
+        You are an intelligent fitness assistant.
+        User Information:
+        - Age: ${age}
+        - Gender: ${gender}
+        - Height: ${height} cm
+        - Weight: ${weight} kg
+        - Target Weight: ${targetWeight} kg
+        - Goal: ${goal}
+        - Diet Type: ${dietType}
+        - Meal Time: ${mealTime}
+        User question: ${question}
+        
+        Please provide a detailed response, including tips or suggestions based on user's data.
+    `;
+
+    try {
+        // Get AI response
+        const aiResponse = await getGeminiResponse(prompt);
+        
+        // Format the AI response for clarity and structure
+        const formattedResponse = formatResponse(aiResponse);
+
+        // Send the formatted AI response to the client
+        res.status(200).json({ response: formattedResponse });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ response: 'There was an error processing your request.' });
+    }
+});
 
 // Function to format the AI response
 function formatResponse(response) {
@@ -83,6 +117,9 @@ function formatResponse(response) {
         // Check for tips section or similar headings
         else if (line.startsWith('Tips for a Healthy Breakfast:')) {
             formattedOutput.push(`<h3>${line}</h3>`); // Treat as a subheading
+        }
+        if(line.startsWith('I am allergic of')){
+            formattedOutput.push(`<h2>${line}</h2>`);
         } 
         // Check for bullet points (lines starting with *)
         else if (line.startsWith('•')) {

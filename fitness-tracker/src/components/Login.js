@@ -22,7 +22,7 @@ function Login() {
     if (response.ok) {
       alert('Login Successful');
       localStorage.setItem('token', data.token);
-      navigate('/'); // Redirect to the home page
+      navigate('/dashboard'); // Redirect to the home page
     } else {
       alert(data.message || 'Login Failed');
     }

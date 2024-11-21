@@ -45,6 +45,13 @@ const Chatbot = () => {
     setResponse('');
   };
 
+  const handlePositiveChange = (setter) => (e) => {
+    const value = e.target.value;
+    if (value === '' || /^[+]?\d+(\.\d+)?$/.test(value)) {
+      setter(value);
+    }
+  };
+
   // Close chatbot if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -88,21 +95,21 @@ const Chatbot = () => {
               <input
                 type="number"
                 value={age}
-                onChange={(e) => setAge(e.target.value)}
+                onChange={handlePositiveChange(setAge)}
                 placeholder="Enter your age"
                 required
               />
               <input
                 type="number"
                 value={height}
-                onChange={(e) => setHeight(e.target.value)}
+                onChange={handlePositiveChange(setHeight)}
                 placeholder="Enter your height in cm"
                 required
               />
               <input
                 type="number"
                 value={weight}
-                onChange={(e) => setWeight(e.target.value)}
+                onChange={handlePositiveChange(setWeight)}
                 placeholder="Enter your weight in kg"
                 required
               />
