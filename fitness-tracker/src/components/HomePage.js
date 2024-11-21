@@ -22,7 +22,7 @@ const HomePage = () => {
 
   // Function to handle button click for "Discover Your Plan"
   const handleDiscoverPlan = () => {
-    window.location.href = '/plans'; // Redirect to plans page
+    window.location.href = '/dietPlanner'; // Redirect to plans page
   };
 
   // Toggle the chatbot visibility
@@ -45,7 +45,7 @@ const HomePage = () => {
           </div>
           <div className="buttons">
             <button onClick={handleStartJourney}>Start Your Journey</button>
-            <button onClick={handleDiscoverPlan}>Discover Your Plan</button>
+            <button onClick={handleDiscoverPlan}>Plan Your Diet</button>
           </div>
         </div>
       </section>
