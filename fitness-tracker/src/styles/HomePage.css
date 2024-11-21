@@ -189,7 +189,7 @@
 }
 
 .card {
-  background: linear-gradient(90deg, rgb(178, 230, 23), rgb(23, 157, 235) 100%);
+  background: linear-gradient(90deg, #ffc20e, rgb(23, 157, 235) 100%);
   color: var(--bg-color);
   padding: 20px;
   border-radius: 10px;
@@ -365,7 +365,7 @@
 
 .Footer {
   padding: 40px 20px;
-  background-color: rgb(240, 226, 41); 
+  background-color: #ffea00; 
   font-size: 2rem;
   color: #000000;
   text-align: center;
@@ -405,7 +405,7 @@
   position: fixed;
   bottom: 20px;  /* Adjust as needed */
   right: 20px;   /* Adjust as needed */
-  background-color: #ffea00;
+  background-color: #ffc20e;
   color: black;
   border: none;
   border-radius: 50%;

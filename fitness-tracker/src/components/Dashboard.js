@@ -19,6 +19,13 @@ const Dashboard = () => {
     const [calories, setCalories] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
+    const handlePositiveChange = (setter) => (e) => {
+        const value = e.target.value;
+        if (value === '' || /^[+]?\d+(\.\d+)?$/.test(value)) {
+          setter(value);
+        }
+      };
+
     const exerciseOptions = [
         { "name": "General Weightlifting", "calories": 4 },
         { "name": "Powerlifting (heavy lifting, like deadlifts or squats)", "calories": 7 },
@@ -208,13 +215,13 @@ const Dashboard = () => {
                                         type="number"
                                         placeholder="Sets"
                                         value={sets}
-                                        onChange={(e) => setSets(e.target.value)}
+                                        onChange={handlePositiveChange(setSets)}
                                     />
                                     <input
                                         type="number"
                                         placeholder="Reps"
                                         value={reps}
-                                        onChange={(e) => setReps(e.target.value)}
+                                        onChange={handlePositiveChange(setReps)}
                                     />
                                     <input
                                         type="date"
@@ -231,7 +238,8 @@ const Dashboard = () => {
                                         type="number"
                                         placeholder="Duration (minutes)"
                                         value={duration}
-                                        onChange={(e) => setDuration(e.target.value)}
+                                        onChange={handlePositiveChange(setDuration)}
+                                        min='0'
                                     />
                                     <div>Calories: {calories}</div>
                                     <button className="modal-submit-button" onClick={handleAddWorkout}>Submit</button>
