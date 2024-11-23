@@ -48,29 +48,42 @@ const DietPlanner = () => {
 
   const generatePDF = () => {
     const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.getWidth() - 20; // Width of the page with 10px margins
+    const pageWidth = doc.internal.pageSize.getWidth() - 20; // Width with 10px margins
+    const pageHeight = doc.internal.pageSize.getHeight() - 20; // Height with 10px margins
     const title = 'AI Diet Planner Response';
-
+  
     // Add Title
     doc.setFontSize(16);
     doc.text(title, 10, 10);
     doc.setFontSize(12);
-
+  
     // Convert HTML response into plain text with line breaks between paragraphs
     const plainText = response
       .replace(/<\/p>/g, '\n\n') // Replace closing paragraph tags with double line breaks
       .replace(/<\/?[^>]+(>|$)/g, '') // Remove other HTML tags
       .trim();
-
+  
     // Split the text into lines that fit within the page width
     const lines = doc.splitTextToSize(plainText, pageWidth);
-
-    // Add text to the PDF with proper spacing
-    doc.text(lines, 10, 20);
-
+  
+    // Add text to the PDF with reduced line spacing
+    let cursorY = 20; // Start below the title
+    const lineHeight = 7; // Reduced line height for tighter spacing
+  
+    lines.forEach((line) => {
+      if (cursorY + lineHeight > pageHeight) {
+        // Add a new page if content overflows
+        doc.addPage();
+        cursorY = 10; // Reset cursor to the top of the new page
+      }
+      doc.text(line, 10, cursorY);
+      cursorY += lineHeight;
+    });
+  
     // Save the PDF
     doc.save('DietPlannerResponse.pdf');
   };
+  
 
   return (
     <div className="dietPlanner-container">
