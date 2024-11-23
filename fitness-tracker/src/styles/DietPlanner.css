@@ -20,12 +20,14 @@
     border-radius: 8px;
     transition: transform 0.2s ease; /* Animation for hover effect */
 }
-.genderSelect{
+
+.genderSelect {
     display: flex;
-    align-items:center; 
+    align-items: center; 
     gap: 30px;
 }
-.genderSelect label{
+
+.genderSelect label {
     display: inline-flex;
     align-items: center;
     gap: 5px; 
@@ -95,7 +97,7 @@
     margin: 5px 0; /* Space between list items */
 }
 
-/* Code block styling (if you plan to use any code formatting) */
+/* Code block styling */
 #responseBox code {
     background-color: #2A2A2A; /* Slightly lighter background for code */
     padding: 2px 5px;
@@ -104,7 +106,7 @@
 }
 
 /* Form styling */
-input, select, label, textarea{
+input, select, label, textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -116,9 +118,20 @@ input, select, label, textarea{
     transition: border-color 0.2s ease; /* Smooth border color transition */
 }
 
-input:focus, select:focus, label:focus, textarea:focus{
+input:focus, select:focus, label:focus, textarea:focus {
     border-color: #FFEA00; /* Highlight border on focus */
     outline: none; /* Remove default outline */
+}
+
+/* Error and success states */
+input.error {
+    border-color: #FF0000; /* Red border for errors */
+    background-color: #3A1A1A; /* Subtle red tint */
+}
+
+input.success {
+    border-color: #00FF00; /* Green border for success */
+    background-color: #1A3A1A; /* Subtle green tint */
 }
 
 /* Submit button */
@@ -146,5 +159,41 @@ button:hover {
     }
     to {
         opacity: 1;
+    }
+}
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Set width for vertical scrollbar */
+    height: 12px; /* Set height for horizontal scrollbar */
+}
+
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Darker background for the scrollbar track */
+    border-radius: 10px; /* Rounded corners for smooth appearance */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Dark thumb for contrast */
+    border-radius: 10px; /* Rounded corners */
+    border: 3px solid #2c2c2c; /* Slight border to match the track */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #FFD700; /* Golden-yellow when hovered */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .dietPlanner-container {
+        flex-direction: column; /* Stack sections vertically */
+        height: auto; /* Adjust height for stacking */
+    }
+    .diet-input, .diet-response {
+        width: 100%; /* Make sections full-width */
+        margin-bottom: 20px; /* Add spacing between stacked sections */
     }
 }

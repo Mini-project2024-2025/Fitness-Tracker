@@ -420,3 +420,26 @@
 .chatbot-shortcut:hover {
   background-color: #FFD600;
 }
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Set width for vertical scrollbar */
+  height: 12px; /* Set height for horizontal scrollbar */
+}
+
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #2c2c2c; /* Darker background for the scrollbar track */
+  border-radius: 10px; /* Rounded corners for smooth appearance */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background-color: #555; /* Dark thumb for contrast */
+  border-radius: 10px; /* Rounded corners */
+  border: 3px solid #2c2c2c; /* Slight border to match the track */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #FFD700; /* Golden-yellow when hovered */
+}

@@ -1,5 +1,5 @@
 // Load environment variables from the .env file
-require('dotenv').config(); // This line loads values from .env file
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -21,8 +21,8 @@ mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => console.log('MongoDB connection error:', err));
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.log('MongoDB connection error:', err));
 
 // Basic test route
 app.get('/', (req, res) => {
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 const authRoutes = require('./routes/auth');  // Assuming auth.js is your authentication routes
 app.use('/api/auth', authRoutes);
 
-// Dashboard routes for authenticated user
+// Dashboard routes for authenticated users
 app.get('/api/dashboard', authMiddleware, async (req, res) => {
     try {
         // Fetch user data by their ID, excluding password field
@@ -47,14 +47,42 @@ app.get('/api/dashboard', authMiddleware, async (req, res) => {
     }
 });
 
-// Function to calculate stats for the current day
+// Function to calculate calories burned by day
+const calculateCaloriesByDay = (workouts) => {
+    const groupedData = workouts.reduce((acc, workout) => {
+        const day = new Date(workout.date).toISOString().split('T')[0]; // Format: YYYY-MM-DD
+        acc[day] = (acc[day] || 0) + (workout.calories * workout.duration);
+        return acc;
+    }, {});
+
+    return Object.entries(groupedData).map(([date, calories]) => ({ date, calories }));
+};
+
+// New endpoint to fetch calories burned by day for the line graph
+app.get('/api/dashboard/calories-by-day', authMiddleware, async (req, res) => {
+    try {
+        const user = await User.findById(req.user).populate('workouts'); // Ensure workouts are populated
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const caloriesByDay = calculateCaloriesByDay(user.workouts);
+
+        res.json(caloriesByDay); // Return data as an array of objects { date, calories }
+    } catch (err) {
+        console.error('Error fetching calories by day:', err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Function to calculate dashboard stats for the current day
 const calculateDashboardStats = (workouts) => {
     const today = new Date().setHours(0, 0, 0, 0); // Start of today at midnight
 
-// Calculate total calories burned today
-const totalCalories = workouts
-    .filter(workout => new Date(workout.date).setHours(0, 0, 0, 0) === today)
-    .reduce((sum, workout) => sum + (workout.calories * workout.duration), 0);
+    // Calculate total calories burned today
+    const totalCalories = workouts
+        .filter(workout => new Date(workout.date).setHours(0, 0, 0, 0) === today)
+        .reduce((sum, workout) => sum + (workout.calories * workout.duration), 0);
 
     // Calculate total number of workouts today
     const totalWorkouts = workouts.filter(workout => new Date(workout.date).setHours(0, 0, 0, 0) === today).length;
@@ -65,7 +93,7 @@ const totalCalories = workouts
     return { totalCalories, totalWorkouts, avgCaloriesPerWorkout };
 };
 
-// New endpoint to fetch dashboard statistics
+// Endpoint to fetch dashboard statistics
 app.get('/api/dashboard/stats', authMiddleware, async (req, res) => {
     try {
         const user = await User.findById(req.user).populate('workouts'); // Ensure workouts are populated
@@ -75,8 +103,7 @@ app.get('/api/dashboard/stats', authMiddleware, async (req, res) => {
 
         const stats = calculateDashboardStats(user.workouts);
 
-        // Return the statistics to the frontend
-        res.json(stats);
+        res.json(stats); // Return statistics to the frontend
     } catch (err) {
         console.error('Error in calculating dashboard stats:', err);
         res.status(500).json({ message: 'Server error' });
@@ -86,7 +113,7 @@ app.get('/api/dashboard/stats', authMiddleware, async (req, res) => {
 // Endpoint to add workout data
 app.post('/api/add-workout', authMiddleware, async (req, res) => {
     const { exerciseName, sets, reps, date, intensity, duration, calories } = req.body;
-    
+
     try {
         const user = await User.findById(req.user);
         if (!user) {
@@ -97,12 +124,8 @@ app.post('/api/add-workout', authMiddleware, async (req, res) => {
         user.workouts.push({ exerciseName, sets, reps, date, intensity, duration, calories });
         await user.save();
 
-        // Recalculate and fetch updated stats after adding the workout
-        const updatedStats = calculateDashboardStats(user.workouts);
-
         res.status(200).json({
-            message: 'Workout added successfully',
-            stats: updatedStats  // Send the updated stats back in the response
+            message: 'Workout added successfully'
         });
     } catch (err) {
         res.status(500).json({ message: 'Server error' });
@@ -115,7 +138,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Something went wrong' });
 });
 
-// Start server using the port from the .env file or default to 5000
+// Start the server using the port from the .env file or default to 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

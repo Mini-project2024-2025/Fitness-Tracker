@@ -249,3 +249,131 @@ nav:hover {
         font-size: 1.2rem;
     }
 }
+
+/* Dashboard.css */
+/* Line Chart Container */
+.line-chart-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #1c1c1c; /* Dark background */
+    border: 2px solid #444; /* Subtle dark border */
+    border-radius: 12px; /* Rounded corners for a modern look */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Soft dark shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.line-chart-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Title above the chart */
+.line-chart-container h2 {
+    text-align: center; /* Center the title */
+    margin-bottom: 20px;
+    font-size: 1.8rem; /* Larger font for emphasis */
+    color: #FFD700; /* Golden-yellow text for contrast */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for title */
+}
+
+/* Chart Responsiveness */
+.recharts-wrapper {
+    max-width: 100%; /* Responsive width */
+    height: 100%; /* Adjust chart height */
+    overflow-x: hidden; /* Prevent overflow */
+}
+
+/* Tooltip customization */
+.recharts-tooltip-wrapper {
+    background-color: rgba(30, 30, 30, 0.95); /* Dark semi-transparent background */
+    color: #FFD700; /* Golden-yellow text for tooltip */
+    border: 1px solid #444; /* Subtle dark border */
+    border-radius: 8px; /* Rounded tooltip */
+    padding: 12px; /* Spacious padding */
+    font-size: 0.9rem; /* Smaller font for tooltip */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+}
+
+/* Legend */
+.recharts-legend-wrapper {
+    text-align: center; /* Center align the legend */
+    font-size: 1rem; /* Modern font size */
+    color: #FFD700; /* Golden-yellow text */
+}
+
+/* Axis Labels */
+.recharts-cartesian-axis text {
+    fill: #FFD700; /* Golden-yellow axis labels */
+    font-size: 1rem; /* Readable font size */
+    font-weight: 500; /* Slightly bold for emphasis */
+}
+
+/* Grid Lines */
+.recharts-cartesian-grid line {
+    stroke: #444; /* Darker gray grid lines */
+    stroke-dasharray: 3 3; /* Dashed lines for modern styling */
+    opacity: 0.5; /* Subtle grid line visibility */
+}
+
+/* Line Chart Line */
+.recharts-line {
+    stroke: #FFD700; /* Golden-yellow line */
+    stroke-width: 3; /* Thicker line for prominence */
+    transition: stroke-dasharray 0.3s ease, stroke-width 0.3s ease;
+}
+
+.recharts-line:hover {
+    stroke-dasharray: 6 2; /* Add dashed effect on hover */
+    stroke-width: 4; /* Thicker stroke on hover */
+}
+
+/* Active Dot */
+.recharts-active-dot circle {
+    fill: #FFD700; /* Golden-yellow fill for the active dot */
+    stroke: #333; /* Dark border for the dot */
+    stroke-width: 2; /* Border width for definition */
+    r: 8; /* Slightly larger active dot */
+    transition: transform 0.2s ease;
+}
+
+.recharts-active-dot circle:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* Animations for Hover Effects */
+.line-chart-container:hover .recharts-line {
+    stroke-dasharray: 6 2; /* Dashed line effect on hover */
+}
+
+/* Interaction Effects */
+.recharts-cartesian-axis text:hover {
+    fill: #fff; /* Brighten axis labels on hover */
+    cursor: pointer;
+}
+
+.recharts-tooltip-wrapper:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow for tooltip */
+}
+/* Style the scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Set width for vertical scrollbar */
+    height: 12px; /* Set height for horizontal scrollbar */
+}
+
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Darker background for the scrollbar track */
+    border-radius: 10px; /* Rounded corners for smooth appearance */
+}
+
+/* Handle (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Dark thumb for contrast */
+    border-radius: 10px; /* Rounded corners */
+    border: 3px solid #2c2c2c; /* Slight border to match the track */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #FFD700; /* Golden-yellow when hovered */
+}
