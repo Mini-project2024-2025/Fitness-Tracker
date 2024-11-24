@@ -1,0 +1,124 @@
+/* Styling for the main container */
+.ExercisePlanner-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    width: 100%;
+    background-color: #121212; /* Dark background for a modern look */
+    padding: 22px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    margin-top: 50px; /* Space from the top */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Image Section */
+.image-section {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: url('./exercise.png') no-repeat center center/cover;
+    border-radius: 8px;
+}
+
+/* Text Overlay on Image */
+.image-section .overlay-text {
+    position: absolute;
+    top: 40%; /* Vertically center the text */
+    right: 20px; /* Position text slightly away from the right edge */
+    transform: translateY(-50%); /* Adjust vertical centering */
+    color: rgba(13, 20, 117, 0.684);
+    font-size: 5.5rem; /* Adjust text size for visibility */
+    font-weight: bold; /* Make the text bold */
+    text-align: right; /* Align text to the right */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+    line-height: 1.4; /* Space out multiple lines, if any */
+}
+
+/* Inputs Section */
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.input-box {
+    width: 20%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #e5e21c;
+    border-radius: 5px;
+    margin-left: 250px;
+}
+
+/* Left side: Input section */
+.inputs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    gap: 15px;
+}
+.dropdown {
+    width: 20%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #e5e21c;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+.textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #e5e21c;
+    border-radius: 5px;
+    resize: none;
+    height: 80px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color:2px solid #0f23a3 ;
+    margin-left: 700px;
+    color: rgb(10, 10, 10);
+    padding: 15px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect for Submit Button */
+.submit-button:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    background-color: #1a3dbd; /* Change color on hover */
+}
+
+
+.exercise-input:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Right side: AI response section */
+.exercise-response {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    height: 400px;
+    background-color: #2a2a2a; /* Slightly lighter gray for response section */
+    box-shadow: 0 0 10px #e5e21c;
+    border-radius: 8px;
+    overflow-y: auto; /* Allow scrolling for long responses */
+    transition: transform 0.2s ease; /* Animation for hover effect */
+}
+
+.exercise-response:hover {
+    transform: scale(1.02);
+}

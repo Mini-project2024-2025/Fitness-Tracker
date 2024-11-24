@@ -19,7 +19,7 @@ const Navbar = () => {
                 <li><a href="#features">Key Features</a></li>
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li><Link to="/dietPlanner">Diet Planner</Link></li>
-                <li><a href="#exercise">Exercise</a></li>
+                <li><Link to="/exercise">Exercise</Link></li>
                 <li><a href="#about-us">About Us</a></li>
             </ul>
             <div className="top-btn">

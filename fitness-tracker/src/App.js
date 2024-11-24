@@ -6,7 +6,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import DietPlanner from './components/DietPlanner';
 import Chatbot from './components/Chatbot';
-import Dashboard from './components/Dashboard';  // Import Dashboard Component
+import Dashboard from './components/Dashboard'; 
+import Exercise from './components/Exercise'; // Import Dashboard Component
 
 import './App.css';
 import './styles/Navbar.css';
@@ -27,7 +28,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/dietPlanner" element={< DietPlanner/>} />
-        <Route path="/dashboard" element={<Dashboard />} />  {/* Add Dashboard Route */}
+        <Route path="/dashboard" element={<Dashboard />} /> 
+        <Route path="/exercise" element={<Exercise />} /> {/* Add Dashboard Route */}
       </Routes>
     </Router>
   );
