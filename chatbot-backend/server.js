@@ -62,19 +62,48 @@ app.post('/api/dietPlanner', async (req, res) => {
 
     // Construct a clear and structured prompt for the AI
     const prompt = `
-        You are an intelligent fitness assistant.
+        You are a professional nutrition and fitness expert, assisting users in achieving their health and dietary goals. 
+        Using the provided user information, craft a personalized and actionable dietary plan, including meal suggestions, tips, and general advice tailored to their specific needs.
         User Information:
         - Age: ${age}
         - Gender: ${gender}
         - Height: ${height} cm
         - Weight: ${weight} kg
         - Target Weight: ${targetWeight} kg
-        - Goal: ${goal}
-        - Diet Type: ${dietType}
-        - Meal Time: ${mealTime}
-        User question: ${question}
+        - Goal (e.g., weight loss, muscle gain,maintenance, Improved Energy): ${goal}
+        - Diet Type (e.g., vegetarian, vegan,non-vegetarian,keto): ${dietType}
+        - Preferred Meal Time(s): ${mealTime} meals per day
+        - User Note/Specific Allergy: "${question}" (e.g., gluten intolerance, nut allergy)
         
-        Please provide a detailed response, including tips or suggestions based on user's data.
+        Response Requirements:
+        1. Summary:
+            - Provide an overview of the user's current stats, goals, and dietary preferences.
+            - Mention how their diet can help them achieve their target weight and goal.
+
+        2. Personalized Meal Plan:
+            - Suggest specific examples for each meal of the day (breakfast, lunch, dinner, and snacks) based on their preferences and goal.
+            - Include portion sizes, if possible, for better clarity.
+            - Mention any suitable alternatives or substitutions for common allergens.
+
+        3. Additional Tips:
+            - Include tips for hydration, meal timing, and exercise routines that complement the diet plan.
+            - Suggest lifestyle habits for improved results (e.g., mindfulness eating, adequate sleep).
+
+        4. Tone:
+            - Maintain a positive, motivating, and professional tone.
+            - Avoid overly technical jargon; keep the advice simple and actionable.
+
+
+        Example Output Format:
+        - Summary: A concise overview of the user's profile and their health goals.
+        - Meal Plan:
+            - Breakfast: Example food items.
+            - Lunch: Example food items.
+            - Dinner: Example food items.
+            - Snacks: Example food items.
+        - Tips: Personalized suggestions for achieving their goal efficiently.
+
+        Use the provided information to craft the most suitable plan for the user.Ensure that the response is clear, actionable, and easy to understand.
     `;
 
     try {

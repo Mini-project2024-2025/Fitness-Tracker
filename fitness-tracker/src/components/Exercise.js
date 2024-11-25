@@ -20,7 +20,7 @@ const Exercise = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ time, difficulty, focus, training, equipment, question }),
-      });
+    });
 
       const data = await res.json();
       setResponse(formatResponse(data.response)); // Apply the formatting function
