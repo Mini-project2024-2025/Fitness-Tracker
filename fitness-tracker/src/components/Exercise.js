@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import jsPDF from 'jspdf';
 import '../styles/Exercise.css';
 
 const Exercise = () => {
@@ -15,7 +14,7 @@ const Exercise = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5001/api/dietPlanner', {
+      const res = await fetch('http://localhost:5001/api/exercise', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,8 +31,7 @@ const Exercise = () => {
   };
 
   const formatResponse = (response) => {
-    const paragraphs = response.split(/<\/?p>/).filter((para) => para.trim() !== '');
-    return paragraphs.map((para) => `<p>${para.trim()}</p>`).join('');
+    return `<h2>Exercise:</h2><p>${response}</p>`;
   };
 
   const handlePositiveChange = (setter) => (e) => {
@@ -42,57 +40,19 @@ const Exercise = () => {
       setter(value);
     }
   };
-
-  const generatePDF = () => {
-    const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.getWidth() - 20; // Width with 10px margins
-    const pageHeight = doc.internal.pageSize.getHeight() - 20; // Height with 10px margins
-    const title = 'AI Exercise Planner Response';
-  
-    // Add Title
-    doc.setFontSize(16);
-    doc.text(title, 10, 10);
-    doc.setFontSize(12);
-  
-    // Convert HTML response into plain text with line breaks between paragraphs
-    const plainText = response
-      .replace(/<\/p>/g, '\n\n') // Replace closing paragraph tags with double line breaks
-      .replace(/<\/?[^>]+(>|$)/g, '') // Remove other HTML tags
-      .trim();
-  
-    // Split the text into lines that fit within the page width
-    const lines = doc.splitTextToSize(plainText, pageWidth);
-  
-    // Add text to the PDF with reduced line spacing
-    let cursorY = 20; // Start below the title
-    const lineHeight = 7; // Reduced line height for tighter spacing
-  
-    lines.forEach((line) => {
-      if (cursorY + lineHeight > pageHeight) {
-        // Add a new page if content overflows
-        doc.addPage();
-        cursorY = 10; // Reset cursor to the top of the new page
-      }
-      doc.text(line, 10, cursorY);
-      cursorY += lineHeight;
-    });
-  
-    // Save the PDF
-    doc.save('ExercisePlannerResponse.pdf');
-  };
   
 
   return (
     <div className="ExercisePlanner-container">
-        <div class="image-section">
-        <div class="overlay-text">Find Your <br/> Perfect <br/> Exercise Routine</div>
-    </div>
+        <div className="image-section">
+        <div className="overlay-text">Find Your <br/> Perfect <br/>Exercise Routine</div>
+        </div>
       {/* Input section */}
-      <div className="inputs-containe">
+      <div className="inputs-container">
         <form onSubmit={handleSubmit}>
           
           <input
-          class="input-box"
+          className="input-box"
             type="number"
             value={time}
             onChange={handlePositiveChange(setTime)}
@@ -102,16 +62,17 @@ const Exercise = () => {
           />
 
           <input
-          class="input-box"
+          className="input-box"
             type="number"
             value={difficulty}
             onChange={handlePositiveChange(setDifficulty)}
             placeholder="Enter your Difficulty level"
             required
             min="0"
+            max="10"
           />
 
-          <select class="dropdown" value={focus} onChange={(e) => setfocus(e.target.value)} required>
+          <select className="dropdown" value={focus} onChange={(e) => setfocus(e.target.value)} required>
             <option value="">Body Focus</option>
             <option value="Neck">Neck</option>
             <option value="Trapezius">Trapezius</option>
@@ -129,7 +90,7 @@ const Exercise = () => {
             <option value="Full Body">Full Body</option>
           </select>
 
-          <select class="dropdown" value={training} onChange={(e) => setType(e.target.value)} required>
+          <select className="dropdown" value={training} onChange={(e) => setType(e.target.value)} required>
             <option value="">Training Type</option>
             <option value="Balance">Balance</option>
             <option value="Barre">Barre</option>
@@ -149,7 +110,7 @@ const Exercise = () => {
             <option value="Yoga">Yoga</option>
           </select>
 
-          <select class="dropdown" value={equipment} onChange={(e) => setEquipment(e.target.value)} required>
+          <select className="dropdown" value={equipment} onChange={(e) => setEquipment(e.target.value)} required>
             <option value="">Equipment</option>
             <option value="Barbell">Barbell</option>
             <option value="Bench">Bench</option>
@@ -168,24 +129,20 @@ const Exercise = () => {
           </select>
 
           <textarea
-          class="textarea"
+          className="textarea"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
-            placeholder="for exercise video"
+            placeholder="Description"
             required
           />
-<div class="center-section"></div>
-<button class="submit-button">Submit</button>
+      <button className="submit-button">Submit</button>
         
         </form>
       </div>
 
       {/* Response section */}
       <div className="exercise-response">
-        <div id="responseBox" dangerouslySetInnerHTML={{ __html: response }}></div>
-        {response && (
-          <button onClick={generatePDF}>Download as PDF</button>
-        )}
+        <div dangerouslySetInnerHTML={{ __html: response }}></div>
       </div>
     </div>
   );

@@ -91,6 +91,37 @@ app.post('/api/dietPlanner', async (req, res) => {
         res.status(500).json({ response: 'There was an error processing your request.' });
     }
 });
+app.post('/api/exercise', async (req, res) => {
+    const { time, difficulty, focus, training, equipment, question } = req.body;
+
+    // Construct a clear and structured prompt for the AI
+    const prompt = `
+        You are an intelligent fitness assistant.
+        User Information:
+        - Time: ${time} minutes
+        - Difficulty: ${difficulty}
+        - Focus: ${focus}
+        - Training: ${training}
+        - Equipment: ${equipment}
+        User Question: ${question}
+        
+        Please provide a detailed response, including tips or suggestions related to the user's data.
+    `;
+
+    try {
+        // Get AI response
+        const aiResponse = await getGeminiResponse(prompt);
+        
+        // Format the AI response for clarity and structure
+        const formattedResponse = formatResponse(aiResponse);
+
+        // Send the formatted AI response to the client
+        res.status(200).json({ response: formattedResponse });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ response: 'There was an error processing your request.' });
+    }
+});
 
 // Function to format the AI response
 function formatResponse(response) {
@@ -118,9 +149,9 @@ function formatResponse(response) {
         else if (line.startsWith('Tips for a Healthy Breakfast:')) {
             formattedOutput.push(`<h3>${line}</h3>`); // Treat as a subheading
         }
-        if(line.startsWith('I am allergic of')){
+        if(line.startsWith('Provide me the video link of')){
             formattedOutput.push(`<h2>${line}</h2>`);
-        } 
+        }
         // Check for bullet points (lines starting with *)
         else if (line.startsWith('•')) {
             if (!inList) {
