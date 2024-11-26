@@ -7,7 +7,11 @@ const Exercise = () => {
   const [focus, setfocus] = useState('');
   const [training, setType] = useState('');
   const [equipment, setEquipment] = useState('');
-  const [question, setQuestion] = useState('');
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+
   const [response, setResponse] = useState('');
 
   const handleSubmit = async (e) => {
@@ -19,8 +23,8 @@ const Exercise = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ time, difficulty, focus, training, equipment, question }),
-    });
+        body: JSON.stringify({ time, difficulty, focus, training, equipment, age, gender, height, weight }),
+      });
 
       const data = await res.json();
       setResponse(formatResponse(data.response)); // Apply the formatting function
@@ -31,7 +35,7 @@ const Exercise = () => {
   };
 
   const formatResponse = (response) => {
-    return `<h2>Exercise:</h2><p>${response}</p>`;
+    return `<h2>AI Response:</h2><p>${response}</p>`;
   };
 
   const handlePositiveChange = (setter) => (e) => {
@@ -40,13 +44,13 @@ const Exercise = () => {
       setter(value);
     }
   };
-  
+
 
   return (
     <div className="ExercisePlanner-container">
         <div className="image-section">
-        <div className="overlay-text">Find Your <br/> Perfect <br/>Exercise Routine</div>
-        </div>
+        <div className="overlay-text">𝙁𝙞𝙣𝙙 𝙔𝙤𝙪𝙧 𝙋𝙚𝙧𝙛𝙚𝙘𝙩 <br/>𝙀𝙭𝙚𝙧𝙘𝙞𝙨𝙚 𝙍𝙤𝙪𝙩𝙞𝙣𝙚</div>
+    </div>
       {/* Input section */}
       <div className="inputs-container">
         <form onSubmit={handleSubmit}>
@@ -61,16 +65,59 @@ const Exercise = () => {
             min="0"
           />
 
-          <input
-          className="input-box"
-            type="number"
-            value={difficulty}
-            onChange={handlePositiveChange(setDifficulty)}
-            placeholder="Enter your Difficulty level"
-            required
-            min="0"
-            max="10"
-          />
+                  <input
+                    className="input-box"
+                    type="number"
+                    value={age}
+                    onChange={handlePositiveChange(setAge)}
+                    placeholder="Enter Age"
+                    required
+                    min="14"
+                  />
+
+                  <select
+                    className="dropdown"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                    required
+                  >
+                    <option value="">Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <input
+                    className="input-box"
+                    type="number"
+                    value={height}
+                    onChange={handlePositiveChange(setHeight)}
+                    placeholder="Enter Height in cm"
+                    required
+                  />
+                  
+                  <input
+                    className="input-box"
+                    type="number"
+                    value={weight}
+                    onChange={handlePositiveChange(setWeight)}
+                    placeholder="Enter Weight in kg"
+                    required
+                  />
+
+
+
+                  <select
+                    className="dropdown"
+                    value={difficulty}
+                    onChange={(e) => setDifficulty(e.target.value)}
+                    required
+                  >
+                    <option value="">Difficulty Level</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                  </select>
+
 
           <select className="dropdown" value={focus} onChange={(e) => setfocus(e.target.value)} required>
             <option value="">Body Focus</option>
@@ -127,23 +174,17 @@ const Exercise = () => {
             <option value="Stationary Bike">Stationary Bike</option>
             <option value="Yoga Block">Yoga Block</option>
           </select>
-
-          <textarea
-          className="textarea"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            placeholder="Description"
-            required
-          />
-      <button className="submit-button">Submit</button>
+<button className="submit-button">Submit</button>
         
         </form>
       </div>
-
+<div className='ready'>
+  <h1>𝙔𝙤𝙪'𝙧𝙚 𝙧𝙚𝙖𝙙𝙮! 𝙇𝙚𝙩'𝙨 𝙘𝙧𝙪𝙨𝙝 𝙩𝙝𝙞𝙨 𝙬𝙤𝙧𝙠𝙤𝙪𝙩!</h1>
+</div>
       {/* Response section */}
       <div className="exercise-response">
-        <div dangerouslySetInnerHTML={{ __html: response }}></div>
-      </div>
+        <div id="responseBox" className='box' dangerouslySetInnerHTML={{ __html: response }}></div>
+       </div>
     </div>
   );
 };

@@ -147,19 +147,19 @@ const Dashboard = () => {
     }, []);
 
     const handleAddWorkout = () => {
-            const workoutData = { exerciseName, sets, reps, date, intensity, duration, calories };
+        const workoutData = { exerciseName, sets, reps, date, intensity, duration, calories };
         
-            axios.post('http://localhost:5000/api/add-workout', workoutData, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-            })
-            .then(res => {
-                // Add the new workout to the state
-                setWorkouts(prevWorkouts => [...prevWorkouts, workoutData]);
+        axios.post('http://localhost:5000/api/add-workout', workoutData, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
+        .then(res => {
+            // Add the new workout to the state
+            setWorkouts(prevWorkouts => [...prevWorkouts, workoutData]);
         
-                // Fetch updated stats
-                axios.get('http://localhost:5000/api/dashboard/stats', {
-                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-                })
+            // Fetch updated stats
+            axios.get('http://localhost:5000/api/dashboard/stats', {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
                 .then(statRes => {
                     setDashboardData(statRes.data || {
                         totalCalories: 0,
