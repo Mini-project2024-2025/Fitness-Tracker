@@ -124,13 +124,13 @@ const Dashboard = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:5000/api/dashboard', {
+            axios.get('https://fitness-tracker-backend-23re.onrender.com/api/dashboard', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             .then(res => {
                 setUser(res.data.user);
                 setWorkouts(res.data.user.workouts);
-                axios.get('http://localhost:5000/api/dashboard/stats', {
+                axios.get('https://fitness-tracker-backend-23re.onrender.com/api/dashboard/stats', {
                     headers: { Authorization: `Bearer ${token}` }
                 })
                 .then(statRes => {
@@ -149,7 +149,7 @@ const Dashboard = () => {
     const handleAddWorkout = () => {
         const workoutData = { exerciseName, sets, reps, date, intensity, duration, calories };
         
-        axios.post('http://localhost:5000/api/add-workout', workoutData, {
+        axios.post('https://fitness-tracker-backend-23re.onrender.com/api/add-workout', workoutData, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })
         .then(res => {
@@ -157,7 +157,7 @@ const Dashboard = () => {
             setWorkouts(prevWorkouts => [...prevWorkouts, workoutData]);
         
             // Fetch updated stats
-            axios.get('http://localhost:5000/api/dashboard/stats', {
+            axios.get('https://fitness-tracker-backend-23re.onrender.com/api/dashboard/stats', {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })
                 .then(statRes => {
