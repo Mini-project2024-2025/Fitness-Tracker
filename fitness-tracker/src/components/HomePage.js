@@ -67,12 +67,12 @@ const HomePage = () => {
               { title: "Monitor Your Progress", desc: "View your workout history, progress charts, and achievements." },
               { title: "Set Goals and Reminders", desc: "Set fitness goals, reminders, and notifications to stay motivated." },
               { title: "Nutrition Tracking", desc: "Log your meals and track your daily calorie intake and nutritional information." },
+              { title: "AI Chatbot", desc: "An intelligent virtual assistant to provides personalized workout tips and answers health and fitness questions." },
               { title: "Customizable Workout Plans", desc: "Create personalized workout plans based on your fitness goals and preferences." },
-              { title: "Wearable Device Integration", desc: "Sync data from wearable devices for seamless tracking." },
               { title: "Personal Dashboard", desc: "Create and manage profiles, track fitness journey, and monitor progress." },
               { title: "Graphs and Analytics", desc: "Visual representations of progress over time, including weight loss, muscle gain, or endurance improvements." },
               { title: "Stress Management", desc: "Provide tips and resources for managing stress through fitness and wellness practices." },
-              { title: "Premium Features", desc: "Subscription-based access to personalized coaching, advanced analytics, and exclusive content." }
+              { title: "Wearable Device Integration", desc: "Sync data from wearable devices for seamless tracking." }
             ].map((feature, index) => (
               <div className="card" key={index}>
                 <h1>{feature.title}</h1>
@@ -113,29 +113,29 @@ const HomePage = () => {
         <div className="about-us-cards">
           {/* Team Members */}
           <div className="about-us-card">
-            <img src="/profile1.jpg" alt="Team Member 1" className="about-us-image" />
+            <img src="/Priyanshu.jpg" alt="Team Member 1" className="about-us-image" />
             <h3 className="about-us-member-name">Priyanshu Yadav</h3>
             <p className="about-us-member-work">Frontend Developer</p>
           </div>
           <div className="about-us-card">
-            <img src="/profile2.jpg" alt="Team Member 2" className="about-us-image" />
+            <img src="/Krishnangi.jpg" alt="Team Member 2" className="about-us-image" />
             <h3 className="about-us-member-name">Krishnangi Agrawal</h3>
             <p className="about-us-member-work">Frontend Developer</p>
           </div>
           <div className="about-us-card">
-            <img src="/profile1.jpg" alt="Team Member 3" className="about-us-image" />
+            <img src="/Vedanshu.jpg" alt="Team Member 3" className="about-us-image" />
             <h3 className="about-us-member-name">Vedanshu Maurya</h3>
             <p className="about-us-member-work">Backend Developer</p>
           </div>
           <div className="about-us-card">
-            <img src="/profile2.jpg" alt="Team Member 4" className="about-us-image" />
+            <img src="/Teena.jpg" alt="Team Member 4" className="about-us-image" />
             <h3 className="about-us-member-name">Teena Gautam</h3>
             <p className="about-us-member-work">Frontend Developer</p>
           </div>
           <div className="about-us-card">
-            <img src="/profile1.jpg" alt="Team Member 5" className="about-us-image" />
+            <img src="/Sharad.jpg" alt="Team Member 5" className="about-us-image" />
             <h3 className="about-us-member-name">Sharad Kumar</h3>
-            <p className="about-us-member-work">Fullstack Developer</p>
+            <p className="about-us-member-work">Backend Developer</p>
           </div>
         </div>
       </section>

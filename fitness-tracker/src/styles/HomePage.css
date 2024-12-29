@@ -12,7 +12,7 @@
 
   /* Add keyframe animation */
   animation: changeBackground 14s infinite; /* 4 images, 3 seconds each */
-  background-blend-mode: darken;
+  background-blend-mode:darken;
 }
 
 /* Keyframes for background images animation */
@@ -21,31 +21,26 @@
     background: url(./img12.jpg) rgba(0, 0, 0, 0.75);
     background-size: cover;
     background-position: center 30%; /* Push the image down */
-    background-blend-mode: darken;
   }
   25% {
     background: url(./img13.jpg) rgba(0, 0, 0, 0.75);
     background-size: cover;
     background-position: center 30%; /* Push the image down */
-    background-blend-mode: darken;
   }
   50% {
     background: url(./img16.jpg) rgba(0, 0, 0, 0.75);
     background-size: cover;
     background-position: center 30%; /* Push the image down */
-    background-blend-mode: darken;
   }
   75% {
     background: url(./img3.jpg) rgba(0, 0, 0, 0.75);
     background-size: cover;
     background-position: center 30%; /* Push the image down */
-    background-blend-mode: darken;
   }
   100% {
     background: url(./img12.jpg) rgba(0, 0, 0, 0.75); /* Loop back to first image */
     background-size: cover;
     background-position: center 30%; /* Push the image down */
-    background-blend-mode: darken;
   }
 }
 
@@ -150,6 +145,12 @@
     gap: 20px;
     align-items: flex-start;
   }
+}/* CSS for Video (below the hero section, responsive) */
+.background-video {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 
