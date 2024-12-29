@@ -18,7 +18,7 @@ const Exercise = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5001/api/exercise', {
+      const res = await fetch('https://fitness-tracker-chatbot.onrender.com/api/exercise', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
