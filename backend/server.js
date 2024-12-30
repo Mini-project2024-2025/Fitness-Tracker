@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:3000',  // Example of restricting to a specific domain
+    origin: 'https://fitzura.vercel.app',  // Example of restricting to a specific domain
     methods: ['GET', 'POST']
 }));
 
