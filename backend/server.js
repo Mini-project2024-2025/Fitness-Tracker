@@ -9,13 +9,6 @@ const authMiddleware = require('./middlewares/authMiddleware');  // Import authe
 const User = require('./models/User');  // User model for accessing data
 const app = express();
 
-app.use(cors(
-    {
-        origin: ["https://deploy-mern-1whq.vercel.app"],
-        methods: ["post","GET"],
-        credentials: true
-    }
-));
 // Middleware
 app.use(express.json());
 app.use(cors({
