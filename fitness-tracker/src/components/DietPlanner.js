@@ -18,7 +18,7 @@ const DietPlanner = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://fitness-tracker-chatbot.onrender.com/api/dietPlanner', {
+      const res = await fetch('http://localhost:5001/api/dietPlanner', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
